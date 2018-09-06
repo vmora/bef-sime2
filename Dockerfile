@@ -115,7 +115,7 @@ RUN echo 'install.packages(c("sp", "rgeos"), repos="http://cran.us.r-project.org
 
 # === On ajoute les modules SIME de Bio Eco Forests ===
 
-ADD ./tryton.tar.xz /opt/
+#ADD ./tryton.tar.gz /opt/
 
 COPY --from=builder-node /package /var/lib/trytond/www
 COPY entrypoint.sh /
@@ -153,4 +153,4 @@ CMD ["apache2", "-D", "FOREGROUND"]
 # ---------- FIN --------------
 #
 # Nettoie les APT
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
+#RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
