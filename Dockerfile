@@ -40,7 +40,7 @@ RUN set -x \
 	&& apt-get purge -y --auto-remove ca-certificates
 	
 # On ajoute le dépôt QGIS
-RUN echo "deb http://qgis.org/debian-ltr bionic main" > /etc/apt/sources.list.d/qgis.list
+RUN echo "deb http://qgis.org/ubuntu bionic main" > /etc/apt/sources.list.d/qgis.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
 
 # On ajoute le dépôt R
@@ -96,7 +96,7 @@ RUN pip3 install --no-cache-dir \
 
 # On installe les dépendances de PostgreSQL, R et QGIS
 # Pour QGIS, R, Tryton
-RUN apt-get install --yes --force-yes git python3-gdal python3-rpy2 python-rpi2 libgeos-dev apache2 qgis qgis-server libapache2-mod-fcgid
+RUN apt-get update && apt-get install --yes --force-yes git python3-gdal python3-rpy2 libgeos-dev apache2 qgis qgis-server libapache2-mod-fcgid
 
 # On ajoute le groupe www-data à root pour QGIS-server
 RUN addgroup www-data root
