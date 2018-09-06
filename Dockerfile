@@ -1,11 +1,17 @@
 # Tryton stack
 #
 # This image includes the following tools
-# - SIME BEF 4.8
+# - SIME BEF
 # - QGIS 3.2
 # - R 3.5
 #
 # Version 1.0
+
+FROM node as builder-node
+ENV SERIES 4.8
+RUN npm install -g bower
+RUN curl https://downloads.tryton.org/${SERIES}/tryton-sao-last.tgz | tar zxf - -C /
+RUN cd /package && bower install --allow-root
 
 FROM pobsteta/docker-base
 MAINTAINER Pascal Obstetar <pascal.obstetar@bioecoforests.com>
@@ -44,11 +50,6 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 # On met à jour
 RUN apt-get -y update
 
-FROM node as builder-node
-RUN npm install -g bower
-RUN curl https://downloads.tryton.org/${SERIES}/tryton-sao-last.tgz | tar zxf - -C /
-RUN cd /package && bower install --allow-root
-
 RUN groupadd -r trytond \
     && useradd --no-log-init -r -d /var/lib/trytond -m -g trytond trytond \
     && mkdir /var/lib/trytond/db && chown trytond:trytond /var/lib/trytond/db \
@@ -81,7 +82,7 @@ RUN apt-get update \
         python3-simpleeval \
         python3-stdnum \
         python3-tz \
-        python3-zeep \
+        # python3-zeep \
     && rm -rf /var/lib/apt/lists/*
     
 RUN pip3 install --no-cache-dir trytond-gis  
@@ -93,9 +94,9 @@ RUN pip3 install --no-cache-dir \
         done \
     && pip3 install --no-cache-dir phonenumbers   
 
-# On installe les dépendances de PostgreSQL, Tryton, R et QGIS
+# On installe les dépendances de PostgreSQL, R et QGIS
 # Pour QGIS, R, Tryton
-RUN apt-get install --yes --force-yes python-dev python-pip python-lxml python-relatorio python-genshi python-dateutil python-polib python-sql python-psycopg2 python-webdav python-pydot unoconv python-sphinx python-simplejson python-yaml git libgdal1i python-software-properties software-properties-common libpq-dev python-ldap python-gdal python-rpy2 libgeos-dev python-vobject python-vatnumber apache2 qgis qgis-server libapache2-mod-fcgid
+RUN apt-get install --yes --force-yes git libgdal1i python-software-properties software-properties-common libpq-dev python-ldap python-gdal python-rpy2 libgeos-dev python-vobject python-vatnumber apache2 qgis qgis-server libapache2-mod-fcgid
 
 # On ajoute le groupe www-data à root pour QGIS-server
 RUN addgroup www-data root
