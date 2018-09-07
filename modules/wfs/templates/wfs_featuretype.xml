@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<schema
+    targetNamespace='http://www.tryton.org/'
+    xmlns:tryton="http://www.tryton.org/"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:py="http://genshi.edgewall.org/"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:gml="http://www.opengis.net/gml"
+    version="1.0.0">
+    <import namespace="http://www.opengis.net/gml"
+        schemaLocation="http://schemas.opengis.net/gml/2.1.2/feature.xsd" />
+    <element name="${name}"
+        type="tryton:${name}Type"
+        substitutionGroup="gml:_Feature"/>
+    <complexType name="${name}Type">
+        <complexContent>
+            <extension base="gml:AbstractFeatureType">
+                <sequence>
+                    <element py:for="elem in elements"
+                        name="${elem.name}"
+                        py:attrs="elem.type"
+                        nillable="${elem.nillable}"
+                        minOccurs="0" maxOccurs="1">
+                        <restriction py:if="elem.type == {'type': 'string'}" base="string">
+                            <maxLength value="256" />
+                        </restriction>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree string="Statut/Pays/Taxon">
+    <field name="pays" />
+    <field name="division" />
+    <field name="statut" />
+    <field name="taxon" />
+</tree>

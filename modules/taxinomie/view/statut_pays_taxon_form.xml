@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Statut/Pays/Taxon" col="2">
+    <label name="pays"/>
+    <field name="pays"/>
+    <label name="division"/>
+    <field name="division"/>
+    <label name="statut"/>
+    <field name="statut"/>
+    <label name="taxon"/>
+    <field name="taxon"/>
+</form>

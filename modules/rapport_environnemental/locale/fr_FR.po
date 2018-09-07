@@ -1,0 +1,753 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: obstetar <pascal.obstetar@bioecoforests.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: fr_FR\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgctxt "field:protection.configuration,code:"
+msgid "Code"
+msgstr "Code"
+
+msgctxt "field:protection.configuration,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:protection.configuration,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:protection.configuration,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.configuration,lib_long:"
+msgid "Label of code"
+msgstr "Libellé du code"
+
+msgctxt "field:protection.configuration,name:"
+msgid "Name of code"
+msgstr "Nom du code"
+
+msgctxt "field:protection.configuration,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:protection.configuration,value:"
+msgid "Value of code"
+msgstr "Valeur du code"
+
+msgctxt "field:protection.configuration,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:protection.configuration,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:protection.surface_statut_buffer,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:protection.surface_statut_buffer,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:protection.surface_statut_buffer,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.surface_statut_buffer,nom:"
+msgid "Nom"
+msgstr "Nom"
+
+msgctxt "field:protection.surface_statut_buffer,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:protection.surface_statut_buffer,site:"
+msgid "Site"
+msgstr "Site"
+
+msgctxt "field:protection.surface_statut_buffer,statut:"
+msgid "Statut"
+msgstr "Statut"
+
+msgctxt "field:protection.surface_statut_buffer,surface:"
+msgid "Surface (ha)"
+msgstr "Surface (ha)"
+
+msgctxt "field:protection.surface_statut_buffer,tiers:"
+msgid "Tiers"
+msgstr "Tiers"
+
+msgctxt "field:protection.surface_statut_buffer,type:"
+msgid "Type"
+msgstr "Type"
+
+msgctxt "field:protection.surface_statut_buffer,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:protection.surface_statut_buffer,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:protection.surface_statut_buffer.open.start,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.surface_statut_buffer.open.start,tiers:"
+msgid "Tiers"
+msgstr "Tiers"
+
+msgctxt "field:protection.taxon_uicn_presence.open.start,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.taxon_uicn_presence.open.start,status:"
+msgid "Statuts"
+msgstr "Statuts"
+
+msgctxt "field:protection.taxon_uicn_presence.open.start,tiers:"
+msgid "Tiers"
+msgstr "Tiers"
+
+msgctxt "field:uicn.taxon_uicn_presence,binomial:"
+msgid "Nom scientifique"
+msgstr "Nom scientifique"
+
+msgctxt "field:uicn.taxon_uicn_presence,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:uicn.taxon_uicn_presence,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:uicn.taxon_uicn_presence,famille:"
+msgid "Famille"
+msgstr "Famille"
+
+msgctxt "field:uicn.taxon_uicn_presence,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:uicn.taxon_uicn_presence,occ:"
+msgid "Occurences"
+msgstr "Occurences"
+
+msgctxt "field:uicn.taxon_uicn_presence,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:uicn.taxon_uicn_presence,site:"
+msgid "Site"
+msgstr "Site"
+
+msgctxt "field:uicn.taxon_uicn_presence,status:"
+msgid "Statuts"
+msgstr "Statuts"
+
+msgctxt "field:uicn.taxon_uicn_presence,taxon:"
+msgid "Taxon"
+msgstr "Taxon"
+
+msgctxt "field:uicn.taxon_uicn_presence,tiers:"
+msgid "Tiers"
+msgstr "Tiers"
+
+msgctxt "field:uicn.taxon_uicn_presence,vernaculaire:"
+msgid "Nom vernaculaire"
+msgstr "Nom vernaculaire"
+
+msgctxt "field:uicn.taxon_uicn_presence,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:uicn.taxon_uicn_presence,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "help:protection.taxon_uicn_presence.open.start,status:"
+msgid "Critères et catégories de l'espèce au niveau mondial"
+msgstr "Critères et catégories de l'espèce au niveau mondial"
+
+msgctxt "help:protection.taxon_uicn_presence.open.start,tiers:"
+msgid "Tiers"
+msgstr "Tiers"
+
+msgctxt "help:uicn.taxon_uicn_presence,status:"
+msgid "Critères et catégories de l'espèce au niveau mondial"
+msgstr "Critères et catégories de l'espèce au niveau mondial"
+
+msgctxt "model:ir.action,name:act_configuration_form"
+msgid "Configuration"
+msgstr "Configuration"
+
+msgctxt "model:ir.action,name:act_surface_tiers_surface_form"
+msgid "Protections - Buffer (ha/Tiers/Statuts)"
+msgstr "Protection - Surface/Tiers/Protection"
+
+msgctxt "model:ir.action,name:act_surface_tiers_surface_open"
+msgid "Protection - Surface/Tiers/Protection"
+msgstr "Protection - Surface/Tiers/Protection"
+
+msgctxt "model:ir.action,name:act_taxon_uicn_presence_form"
+msgid "UICN - Présence de taxons sur sites"
+msgstr "UICN - Présence de taxons sur sites"
+
+msgctxt "model:ir.action,name:act_taxon_uicn_presence_open"
+msgid "UICN - Présence de taxons sur sites"
+msgstr "UICN - Présence de taxons sur sites"
+
+msgctxt "model:ir.action,name:report_bef"
+msgid "Rapport Bio"
+msgstr "Rapport Bio"
+
+msgctxt "model:ir.action,name:report_odt"
+msgid "Rapport (odt)"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_rmdhtml"
+msgid "Rapport (html)"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_rnwpdf"
+msgid "Rapport (pdf)"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_uicn"
+msgid "Liste UICN"
+msgstr "Liste UICN"
+
+msgctxt "model:ir.ui.menu,name:menu_configuration_form"
+msgid "Configuration"
+msgstr "Configuration"
+
+msgctxt "model:ir.ui.menu,name:menu_protection_configuration"
+msgid "Configuration"
+msgstr "Configuration"
+
+msgctxt "model:ir.ui.menu,name:menu_protection_surface_tiers_surface"
+msgid "Protection - Surface/Tiers/Protection"
+msgstr "Protection - Surface/Tiers/Protection"
+
+msgctxt "model:ir.ui.menu,name:menu_rapport"
+msgid "Rapports"
+msgstr "Rapports"
+
+msgctxt "model:ir.ui.menu,name:menu_uicn_taxon_presence_form"
+msgid "UICN - Présence de taxons sur sites"
+msgstr "UICN - Présence de taxons sur sites"
+
+msgctxt "model:protection.configuration,name:"
+msgid "Configuration"
+msgstr "Configuration"
+
+msgctxt "model:protection.surface_statut_buffer,name:"
+msgid "Buffer (ha/Tiers/Statuts)"
+msgstr "Buffer (ha/Tiers/Statuts)"
+
+msgctxt "model:protection.surface_statut_buffer.open.start,name:"
+msgid "Open surface_statut_buffer"
+msgstr "Ouvrir surface statut buffer"
+
+msgctxt "model:protection.taxon_uicn_presence.open.start,name:"
+msgid "Open TaxonUicnPlace"
+msgstr "Ouvrir Taxon Uicn Emprise"
+
+msgctxt "model:uicn.taxon_uicn_presence,name:"
+msgid "Présence de Taxons"
+msgstr "Présence de Taxons"
+
+msgctxt "odt:party.rapport_bio:"
+msgid "."
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "0.287 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "0.715 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "1"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "10"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "16"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "2"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "3"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "4"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "5"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "5.719 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "6.314 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "6.521 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "7.753 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "8"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "8.040 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "8.694 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "8.876 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "9.099 km"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "BOIS DES FOURASSES ET PLATEAU DE VILLERS"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Ce texte a pour autre avantage d'utiliser des mots de longueur variable, "
+"essayant de simuler une occupation normale. La méthode simpliste consistant "
+"à copier-coller un court texte plusieurs fois (« ceci est un faux-texte ceci "
+"est un faux-texte ceci est un faux-texte ceci est un faux-texte ceci est un "
+"faux-texte ») a l'inconvénient de ne pas permettre une juste appréciation "
+"typographique du résultat final."
+msgstr ""
+"Ce texte a pour autre avantage d'utiliser des mots de longueur variable, "
+"essayant de simuler une occupation normale. La méthode simpliste consistant "
+"à copier-coller un court texte plusieurs fois (« ceci est un faux-texte ceci "
+"est un faux-texte ceci est un faux-texte ceci est un faux-texte ceci est un "
+"faux-texte ») a l'inconvénient de ne pas permettre une juste appréciation "
+"typographique du résultat final."
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Côte de Voirémont"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Espaces Protégés"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Etang de Merrey"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "FONDS DE MONVAUX A MARON"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Graphique représentant les surfaces des statuts de protection dans un rayon "
+"inférieur à 10 km pour le site Siège social"
+msgstr ""
+"Graphique représentant les surfaces des statuts de protection dans un rayon "
+"inférieur à 10 km pour le site Siège social"
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Généralement, on utilise un texte en faux latin (le texte ne veut rien dire, "
+"il a été modifié), le Lorem ipsum ou Lipsum, qui permet donc de faire office "
+"de texte d'attente. L'avantage de le mettre en latin est que l'opérateur "
+"sait au premier coup d'oeil que la page contenant ces lignes n'est pas "
+"valide, et surtout l'attention du client n'est pas dérangée par le contenu, "
+"il demeure concentré seulement sur l'aspect graphique."
+msgstr ""
+"Généralement, on utilise un texte en faux latin (le texte ne veut rien dire, "
+"il a été modifié), le Lorem ipsum ou Lipsum, qui permet donc de faire office "
+"de texte d'attente. L'avantage de le mettre en latin est que l'opérateur "
+"sait au premier coup d'oeil que la page contenant ces lignes n'est pas "
+"valide, et surtout l'attention du client n'est pas dérangée par le contenu, "
+"il demeure concentré seulement sur l'aspect graphique."
+
+msgctxt "odt:party.rapport_bio:"
+msgid "ILES DU FOULON ET DE L'ENCENSOIR A TOMBLAINE"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Il circule des centaines de versions différentes du Lorem ipsum, mais ce "
+"texte aurait originellement été tiré de l'ouvrage de Cicéron, De Finibus "
+"Bonorum et Malorum (Liber Primus, 32), texte populaire à cette époque, dont "
+"l'une des premières phrases est : « Neque porro quisquam est qui dolorem "
+"ipsum quia dolor sit amet, consectetur, adipisci velit... » (« Il n'existe "
+"personne qui aime la souffrance pour elle-même, ni qui la recherche ni qui "
+"la veuille pour ce qu'elle est... »)."
+msgstr ""
+"Il circule des centaines de versions différentes du Lorem ipsum, mais ce "
+"texte aurait originellement été tiré de l'ouvrage de Cicéron, De Finibus "
+"Bonorum et Malorum (Liber Primus, 32), texte populaire à cette époque, dont "
+"l'une des premières phrases est : « Neque porro quisquam est qui dolorem "
+"ipsum quia dolor sit amet, consectetur, adipisci velit... » (« Il n'existe "
+"personne qui aime la souffrance pour elle-même, ni qui la recherche ni qui "
+"la veuille pour ce qu'elle est... »)."
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Inventaires d'Espaces Naturels"
+msgstr "Inventaires d'Espaces Naturels"
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Les cercles concentriques sont représentés pour les zonages à 500m, 2000m et "
+"5000m autour du site décrit."
+msgstr ""
+"Les cercles concentriques sont représentés pour les zonages à 500m, 2000m et "
+"5000m autour du site décrit."
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Lorraine"
+msgstr "Lorraine"
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Mares de Saulxures-lès-Nancy et Tomblaine"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Niveaux de risques et statuts de protection"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Niveaux de risques et statuts de protection."
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "PLATEAU DE MALZEVILLE ET BUTTE DE-GENEVIEVE A ESSEY-LES-NANCY"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Saut du Cerf"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Situation"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Situation générale du site Siège social"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Situation localisée du site Siège social"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Situé dans l'Est de la France ce site présente peut d'impact sur les zones à "
+"statuts de protection fortes."
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Siège social"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Table des matières"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "Tableau des"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"Tableau des 10 sites susceptibles d'être impactés par le site Siège social "
+"dans un rayon de 10 km."
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "VALLON DE BELLEFONTAINE A CHAMPIGNEULLES"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "distance"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "du site Siège social"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "générale"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "km."
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "localisée"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "nom"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid ""
+"sites susceptibles d'être impactés par le site Siège social dans un rayon de"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "statut"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "tiers"
+msgstr ""
+
+msgctxt "odt:party.rapport_bio:"
+msgid "type"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid ":"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Commentaires :"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Localisation du Site :"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Localisation du Statut de protection :"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Nom"
+msgstr "Nom"
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Site :"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Statut"
+msgstr "Statut"
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Surface"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Tiers :"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Type"
+msgstr "Type"
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "Type de statut"
+msgstr ""
+
+msgctxt "odt:protection.rapport_odt:"
+msgid "ha"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid ":"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Commentaires :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Liens vers site INPN :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Localisation du Site :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Nom vernaculaire"
+msgstr "Nom vernaculaire"
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Observations :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Site :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Statut"
+msgstr "Statut"
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "T"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "Tiers :"
+msgstr ""
+
+msgctxt "odt:uicn.rapport_uicn:"
+msgid "axon"
+msgstr ""
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "DONNÉES INSUFFISANTES (DD)"
+msgstr "DONNÉES INSUFFISANTES (DD)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "EN DANGER (EN)"
+msgstr "EN DANGER (EN)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "EN DANGER CRITIQUE D’EXTINCTION (CR)"
+msgstr "EN DANGER CRITIQUE D’EXTINCTION (CR)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "NON ÉVALUÉ (NE)"
+msgstr "NON ÉVALUÉ (NE)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "PRÉOCCUPATION MINEURE (LC)"
+msgstr "PRÉOCCUPATION MINEURE (LC)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "QUASI MENACÉ (NT)"
+msgstr "QUASI MENACÉ (NT)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "VULNÉRABLE (VU)"
+msgstr "VULNÉRABLE (VU)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "ÉTEINT (EX)"
+msgstr "ÉTEINT (EX)"
+
+msgctxt "selection:protection.taxon_uicn_presence.open.start,status:"
+msgid "ÉTEINT À L’ÉTAT SAUVAGE (EW)"
+msgstr "ÉTEINT À L’ÉTAT SAUVAGE (EW)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "DONNÉES INSUFFISANTES (DD)"
+msgstr "DONNÉES INSUFFISANTES (DD)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "EN DANGER (EN)"
+msgstr "EN DANGER (EN)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "EN DANGER CRITIQUE D’EXTINCTION (CR)"
+msgstr "EN DANGER CRITIQUE D’EXTINCTION (CR)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "NON ÉVALUÉ (NE)"
+msgstr "NON ÉVALUÉ (NE)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "PRÉOCCUPATION MINEURE (LC)"
+msgstr "PRÉOCCUPATION MINEURE (LC)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "QUASI MENACÉ (NT)"
+msgstr "QUASI MENACÉ (NT)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "VULNÉRABLE (VU)"
+msgstr "VULNÉRABLE (VU)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "ÉTEINT (EX)"
+msgstr "ÉTEINT (EX)"
+
+msgctxt "selection:uicn.taxon_uicn_presence,status:"
+msgid "ÉTEINT À L’ÉTAT SAUVAGE (EW)"
+msgstr "ÉTEINT À L’ÉTAT SAUVAGE (EW)"
+
+msgctxt "view:protection.configuration:"
+msgid "configuration"
+msgstr "configuration"
+
+msgctxt "view:protection.surface_statut_buffer.open.start:"
+msgid "Protection - Surface/Tiers/Protection"
+msgstr "Protection - Surface/Tiers/Protection"
+
+msgctxt "view:protection.surface_statut_buffer:"
+msgid "Surface entre Buffer Tiers"
+msgstr "Surface entre Buffer Tiers"
+
+msgctxt "view:protection.surface_statut_buffer:"
+msgid "Surface entre Buffer et Tiers"
+msgstr "Surface entre Buffer et Tiers"
+
+msgctxt "view:protection.taxon_uicn_presence.open.start:"
+msgid "UICN - Présence de taxons sur sites"
+msgstr "UICN - Présence de taxons sur sites"
+
+msgctxt "view:uicn.taxon_uicn_presence:"
+msgid "Présence du Taxon (priorité UICN)"
+msgstr "Présence du Taxon (priorité UICN)"
+
+msgctxt "view:uicn.taxon_uicn_presence:"
+msgid "taxon_uicn_presence"
+msgstr "taxon_uicn_presence"
+
+msgctxt "wizard_button:protection.surface_statut_buffer.open,start,end:"
+msgid "Cancel"
+msgstr "Annuler"
+
+msgctxt "wizard_button:protection.surface_statut_buffer.open,start,open_:"
+msgid "Open"
+msgstr "Ouvrir"
+
+msgctxt "wizard_button:protection.taxon_uicn_presence.open,start,end:"
+msgid "Cancel"
+msgstr "Annuler"
+
+msgctxt "wizard_button:protection.taxon_uicn_presence.open,start,open_:"
+msgid "Open"
+msgstr "Ouvrir"

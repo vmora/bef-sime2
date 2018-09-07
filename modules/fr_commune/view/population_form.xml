@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form string="Population">
+    <label name="annee"/>
+    <field name="annee"/>
+    <label name="total"/>
+    <field name="total"/>
+    <label name="pop_0014"/>
+    <field name="pop_0014"/>
+    <label name="pop_1529"/>
+    <field name="pop_1529"/>
+    <label name="pop_3044"/>
+    <field name="pop_3044"/>
+    <label name="pop_4559"/>
+    <field name="pop_4559"/> 
+    <label name="pop_6074"/>
+    <field name="pop_6074"/>  
+    <label name="pop_75p"/>
+    <field name="pop_75p"/>    
+</form>

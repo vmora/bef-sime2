@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<form string="Taxinomie" col="2">
+    <notebook colspan="2">
+        <page string="Général" id="general">
+            <group string="Muséum National d'Histoire Naturelle" id="group_mnhn" colspan="4">        
+                <label name="regne"/>
+                <field name="regne"/>
+                <label name="phylum"/>
+                <field name="phylum"/>
+                <label name="classe"/>
+                <field name="classe"/>
+                <label name="ordre"/>
+                <field name="ordre"/>
+                <label name="famille"/>
+                <field name="famille"/>
+                <label name="group1_inpn"/>
+                <field name="group1_inpn"/>
+                <label name="group2_inpn"/>
+                <field name="group2_inpn"/>
+                <label name="cd_nom"/>
+                <field name="cd_nom"/>
+                <label name="cd_taxsup"/>
+                <field name="cd_taxsup"/>
+                <label name="cd_ref"/>
+                <field name="cd_ref"/>
+                <label name="rang"/>
+                <field name="rang" widget="selection"/>
+                <label name="lb_nom"/>
+                <field name="lb_nom"/>
+                <label name="lb_auteur"/>
+                <field name="lb_auteur"/>
+                <label name="nom_complet"/>
+                <field name="nom_complet"/>
+                <label name="nom_complet_html"/>
+                <field name="nom_complet_html"/>
+                <label name="nom_valide"/>
+                <field name="nom_valide"/>
+                <label name="nom_vern"/>
+                <field name="nom_vern"/>
+                <label name="nom_vern_eng"/>
+                <field name="nom_vern_eng"/>
+                <label name="habitat"/>
+                <field name="habitat" widget="selection"/>
+                <label name="url"/>
+                <field name="url" widget="url"/>
+            </group>
+        </page>
+        <page string="Statuts" id="status">                                    
+            <field name="statut"/>
+        </page>
+        <page string="Protection juridique" id="protection">                                    
+            <field name="protection"/>
+        </page>
+    </notebook>                 
+</form>

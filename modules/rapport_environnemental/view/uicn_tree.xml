@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="taxon_uicn_presence" colors="If(Equal(Eval('status'), 'EX'), 'black', If(Equal(Eval('status'), 'EW'), 'black', If(Equal(Eval('status'), 'CR'), 'red', If(Equal(Eval('status'), 'EN'), 'orange', If(Equal(Eval('status'), 'VU'), 'yellow', If(Equal(Eval('status'), 'NT'), 'blue', 'gray'))))))">
+    <field name="tiers"/>
+    <field name="site"/>
+    <field name="taxon" />
+    <field name="binomial" />
+    <field name="vernaculaire" />
+    <field name="famille" />
+    <field name="status" />                  
+</tree>

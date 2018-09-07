@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        
+        <!-- Cantons -->
+        <record model="ir.ui.view" id="canton_view_tree">
+            <field name="model">fr.canton</field>
+            <field name="type">tree</field>
+            <field name="name">canton_tree</field>
+        </record>
+        <record model="ir.ui.view" id="canton_view_form">
+            <field name="model">fr.canton</field>
+            <field name="type">form</field>
+            <field name="name">canton_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_canton_form">
+            <field name="name">Canton</field>
+            <field name="res_model">fr.canton</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_canton_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="canton_view_tree"/>
+            <field name="act_window" ref="act_canton_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_canton_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="canton_view_form"/>
+            <field name="act_window" ref="act_canton_form"/>
+        </record>        
+        <menuitem parent="menu_fr_admin" sequence="4" id="menu_canton_form" icon="tryton-list" action="act_canton_form"/>
+
+        <record model="ir.action.report" id="report_canton_edit">
+            <field name="name">Open in QGis...</field>
+            <field name="model">fr.canton</field>
+            <field name="report_name">fr.canton.qgis</field>
+            <field name="report">qgis/qgis.qgs</field>
+        </record>
+        <record model="ir.action.keyword" id="report_canton_edit_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">fr.canton,-1</field>
+            <field name="action" ref="report_canton_edit"/>
+        </record>
+
+        <!-- generate all maps -->
+        <record model="ir.action.wizard" id="generateCa">
+            <field name="name">Generate maps...</field>
+            <field name="model">fr.canton</field>
+            <field name="wiz_name">fr.canton_generate</field>
+        </record>
+        <record model="ir.action.keyword" id="generate_all_kwd_Ca">
+            <field name="keyword">form_action</field>
+            <field name="model">fr.canton,-1</field>
+            <field name="action" ref="generateCa"/>
+        </record>
+    </data>
+</tryton>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WFS_Capabilities
+    xmlns="http://www.opengis.net/wfs"
+    xmlns:py="http://genshi.edgewall.org/"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="1.1.0" updateSequence="0"
+    xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/WFS-capabilities.xsd">
+    <Service>
+        <Name>${name}</Name>
+        <Title>${title}</Title>
+        <Abstract>${abstract}</Abstract>
+        <OnlineResource>${url}</OnlineResource>
+    </Service>
+    <Capability>
+        <Request>
+            <GetCapabilities>
+                <DCPType>
+                    <HTTP>
+                        <Get onlineResource="${url}?"/>
+                    </HTTP>
+                </DCPType>
+                <DCPType>
+                    <HTTP>
+                        <Post onlineResource="${url}_POST"/>
+                    </HTTP>
+                </DCPType>
+            </GetCapabilities>
+            <DescribeFeatureType>
+                <SchemaDescriptionLanguage>
+                    <XMLSCHEMA/>
+                </SchemaDescriptionLanguage>
+                <DCPType>
+                    <HTTP>
+                        <Get onlineResource="${url}?"/>
+                    </HTTP>
+                </DCPType>
+                <DCPType>
+                    <HTTP>
+                        <Post onlineResource="${url}_POST"/>
+                    </HTTP>
+                </DCPType>
+            </DescribeFeatureType>
+            <GetFeature>
+                <ResultFormat>
+                    <GML2/>
+                    <!-- <GML3/> -->
+                </ResultFormat>
+                <DCPType>
+                    <HTTP>
+                        <Get onlineResource="${url}?"/>
+                    </HTTP>
+                </DCPType>
+                <DCPType>
+                    <HTTP>
+                        <Post onlineResource="${url}_POST"/>
+                    </HTTP>
+                </DCPType>
+            </GetFeature>
+            <Transaction>
+                <DCPType>
+                    <HTTP>
+                        <Get onlineResource="${url}?"/>
+                    </HTTP>
+                </DCPType>
+                <DCPType>
+                    <HTTP>
+                        <Post onlineResource="${url}_POST"/>
+                    </HTTP>
+                </DCPType>
+            </Transaction>
+        </Request>
+    </Capability>
+    <FeatureTypeList>
+        <Operations>
+            <Query/>
+            <Insert/>
+            <Update/>
+            <Delete/>
+        </Operations>
+        <FeatureType py:for="feature in features">
+            <Title>${feature.title}</Title>
+            <Name>tryton:${feature.name}</Name>
+            <SRS py:if="feature.srs">${feature.srs}</SRS>
+            <LatLongBoundingBox py:if="feature.bbox is not None" minx="${feature.bbox[0]}" miny="${feature.bbox[1]}" maxx="${feature.bbox[2]}" maxy="${feature.bbox[3]}"/>
+        </FeatureType>
+    </FeatureTypeList>
+    <ogc:Filter_Capabilities>
+        <ogc:Spatial_Capabilities>
+            <ogc:Spatial_Operators>
+                <ogc:BBOX/>
+            </ogc:Spatial_Operators>
+        </ogc:Spatial_Capabilities>
+        <ogc:Scalar_Capabilities>
+            <ogc:Logical_Operators/>
+            <ogc:ComparisonOperators>
+                <ogc:ComparisonOperator>EqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>NotEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>GreaterThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>GreaterThanEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>LessThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>LessThanEqualTo</ogc:ComparisonOperator>
+            </ogc:ComparisonOperators>
+        </ogc:Scalar_Capabilities>
+    </ogc:Filter_Capabilities>
+</WFS_Capabilities>

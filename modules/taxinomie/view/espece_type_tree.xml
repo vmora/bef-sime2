@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree string="Typologie des protections des espèces">
+    <field name="cd_protection" />
+    <field name="article" />
+    <field name="intitule" />
+    <field name="arrete" />
+    <field name="url_inpn" />
+    <field name="url" />
+    <field name="date_arrete" />
+    <field name="type" />
+</tree>

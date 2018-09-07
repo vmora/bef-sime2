@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<graph string="Présence du Taxon (priorité UICN)" type="pie">
+    <x>
+        <field name="status"/>
+    </x>
+    <y>
+        <field name="occ"/>
+    </y>
+</graph>

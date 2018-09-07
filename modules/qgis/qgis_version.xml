@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tryton>
+    <data>
+        <record model="qgis.version" id="1">
+            <field name="code">2.6.0</field>
+            <field name="name">QGIS 2.6.0</field>
+        </record>
+        <record model="qgis.version" id="2">
+            <field name="code">2.6.1</field>
+            <field name="name">QGIS 2.6.1</field>
+        </record>
+        <record model="qgis.version" id="3">
+            <field name="code">2.8.0</field>
+            <field name="name">QGIS 2.8.0</field>
+        </record>
+        <record model="qgis.version" id="4">
+            <field name="code">2.8.1</field>
+            <field name="name">QGIS 2.8.1</field>
+        </record>
+        <record model="qgis.version" id="5">
+            <field name="code">2.8.2</field>
+            <field name="name">QGIS 2.8.2</field>
+        </record>
+        <record model="qgis.version" id="6">
+            <field name="code">2.10.0</field>
+            <field name="name">QGIS 2.10.0</field>
+        </record>
+        <record model="qgis.version" id="7">
+            <field name="code">2.10.1</field>
+            <field name="name">QGIS 2.10.1</field>
+        </record>
+        <record model="qgis.version" id="8">
+            <field name="code">2.10.2</field>
+            <field name="name">QGIS 2.10.2</field>
+        </record>
+        <record model="qgis.version" id="9">
+            <field name="code">2.12.1</field>
+            <field name="name">QGIS 2.12.1</field>
+        </record>
+        <record model="qgis.version" id="10">
+            <field name="code">2.12.2</field>
+            <field name="name">QGIS 2.12.2</field>
+        </record>
+        <record model="qgis.version" id="11">
+            <field name="code">2.12.3</field>
+            <field name="name">QGIS 2.12.3</field>
+        </record>
+        <record model="qgis.version" id="12">
+            <field name="code">2.14.0</field>
+            <field name="name">QGIS 2.14.0</field>
+        </record>
+        <record model="qgis.version" id="13">
+            <field name="code">2.14.1</field>
+            <field name="name">QGIS 2.14.1</field>
+        </record>
+        <record model="qgis.version" id="14">
+            <field name="code">2.14.2</field>
+            <field name="name">QGIS 2.14.2</field>
+        </record>
+        <record model="qgis.version" id="15">
+            <field name="code">2.14.3</field>
+            <field name="name">QGIS 2.14.3</field>
+        </record>
+        <record model="qgis.version" id="16">
+            <field name="code">2.16.0</field>
+            <field name="name">QGIS 2.16.0</field>
+        </record>
+    </data>
+</tryton>        

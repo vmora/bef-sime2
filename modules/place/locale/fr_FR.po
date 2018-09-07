@@ -1,0 +1,216 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Obstetar <pascal.obstetar@bioecoforests.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgctxt "error:place.place-party.party:"
+msgid "You cant modified category of site !"
+msgstr "Vous ne pouvez pas modifier la catégorie d'un site !"
+
+msgctxt "error:place.place:"
+msgid "The address is invalid, no city is defined!"
+msgstr "L'adresse est invalide, pas de ville définie !"
+
+msgctxt "field:party.party,geom:"
+msgid "Geometry"
+msgstr "Géométrie"
+
+msgctxt "field:party.party,place:"
+msgid "Places"
+msgstr "Emprises"
+
+msgctxt "field:place.place,active:"
+msgid "Active"
+msgstr "Active"
+
+msgctxt "field:place.place,address:"
+msgid "Address"
+msgstr "Adresse"
+
+msgctxt "field:place.place,code:"
+msgid "Site ID"
+msgstr "ID Site"
+
+msgctxt "field:place.place,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:place.place,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:place.place,geom:"
+msgid "Geometry"
+msgstr "Géométrie"
+
+msgctxt "field:place.place,html:"
+msgid "HTML"
+msgstr "HTML"
+
+msgctxt "field:place.place,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:place.place,image:"
+msgid "Image"
+msgstr "Image"
+
+msgctxt "field:place.place,image_all:"
+msgid "Image"
+msgstr "Image"
+
+msgctxt "field:place.place,image_map:"
+msgid "Image"
+msgstr "Image"
+
+msgctxt "field:place.place,image_map_filename:"
+msgid "Filename"
+msgstr "Nom du fichier"
+
+msgctxt "field:place.place,lib_long:"
+msgid "Site label"
+msgstr "Libellé court du site"
+
+msgctxt "field:place.place,name:"
+msgid "Site name"
+msgstr "Nom du site"
+
+msgctxt "field:place.place,party:"
+msgid "Party"
+msgstr "Tiers"
+
+msgctxt "field:place.place,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:place.place,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:place.place,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:place.place-party.party,category:"
+msgid "Catégorie"
+msgstr "Catégorie"
+
+msgctxt "field:place.place-party.party,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:place.place-party.party,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:place.place-party.party,full_code:"
+msgid "Full Code"
+msgstr "Code complet"
+
+msgctxt "field:place.place-party.party,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:place.place-party.party,party:"
+msgid "Partenaire"
+msgstr "Partenaire"
+
+msgctxt "field:place.place-party.party,place:"
+msgid "Place"
+msgstr "Emprise"
+
+msgctxt "field:place.place-party.party,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:place.place-party.party,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:place.place-party.party,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "help:party.party,geom:"
+msgid "geometry"
+msgstr "géométrie"
+
+msgctxt "help:place.place,code:"
+msgid "Site Identifiant"
+msgstr "Identifiant du site"
+
+msgctxt "help:place.place,geom:"
+msgid "Geometry multipolygonal"
+msgstr "Géométrie multipolygonale"
+
+msgctxt "help:place.place,html:"
+msgid "File name of HTML site"
+msgstr "Nom du fichier HTML du site"
+
+msgctxt "help:place.place,lib_long:"
+msgid "Long label of site"
+msgstr "Libellé long du site"
+
+msgctxt "help:place.place,name:"
+msgid "Short label of site"
+msgstr "Libellé court du site"
+
+msgctxt "model:ir.action,name:act_place_form_view"
+msgid "Places"
+msgstr "Emprises"
+
+msgctxt "model:ir.action,name:act_place_party_rel_form"
+msgid "Places"
+msgstr "Emprises"
+
+msgctxt "model:ir.action,name:report_lol_edit"
+msgid "Open in QGis..."
+msgstr "Ouvrir dans QGis..."
+
+msgctxt "model:ir.ui.menu,name:menu_place"
+msgid "Places"
+msgstr "Emprises"
+
+msgctxt "model:place.place,name:"
+msgid "Place"
+msgstr "Emprise"
+
+msgctxt "model:place.place-party.party,name:"
+msgid "PlaceParty"
+msgstr ""
+
+msgctxt "view:party.party:"
+msgid "Map"
+msgstr "Carte"
+
+msgctxt "view:party.party:"
+msgid "Places"
+msgstr "Emprises"
+
+msgctxt "view:place.place-party.party:"
+msgid "Partenaires"
+msgstr "Partenaires"
+
+msgctxt "view:place.place:"
+msgid "Comment and Map"
+msgstr "Commentaire et Carte"
+
+msgctxt "view:place.place:"
+msgid "Edit"
+msgstr "Éditer"
+
+msgctxt "view:place.place:"
+msgid "Generate"
+msgstr "Générer"
+
+msgctxt "view:place.place:"
+msgid "Général"
+msgstr "Général"

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="Lignes entre Tiers et Statuts de Protection" col="6">
+    <label name="party"/>
+    <field name="party"/>    
+    <field name="line_image" colspan="6" widget="image" img_width="640" img_height="480"/>
+    <button string="Edit" colspan="6" name="image_edit" icon="tryton-executable" />
+</form>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<form string="znieff" col="2">
+    <notebook colspan="6">
+        <page string="General" id="general">
+            <label name="id_mnhn" />
+            <field name="id_mnhn" />
+            <label name="name" />
+            <field name="name" />
+            <label name="date" />
+            <field name="date" />
+            <label name="version" />
+            <field name="version" />
+            <label name="generation" />
+            <field name="generation" />
+        </page>                        
+        <page string="Map" id="map">
+            <label name="geom"/>                          
+            <field name="geom"/>                            
+        </page>
+    </notebook>
+</form>

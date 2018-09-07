@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="population_view_tree">            
+            <field name="model">fr.population</field>
+            <field name="type">tree</field>
+            <field name="name">population_tree</field>
+        </record>
+        <record model="ir.ui.view" id="population_view_form">            
+            <field name="model">fr.population</field>
+            <field name="type">form</field>
+            <field name="name">population_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_population_form">
+            <field name="name">Population</field>
+            <field name="res_model">fr.population</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_population_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="population_view_tree"/>
+            <field name="act_window" ref="act_population_form"/>        
+        </record>
+        <record model="ir.action.act_window.view" id="act_population_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="population_view_form"/>
+            <field name="act_window" ref="act_population_form"/>        
+        </record>
+        <menuitem parent="menu_fr_admin" sequence="6" id="menu_population_form" icon="tryton-list" action="act_population_form"/>
+    </data>
+</tryton>

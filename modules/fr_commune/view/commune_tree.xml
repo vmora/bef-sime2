@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree string="Commune">    
+    <field name="region"/>
+    <field name="departement"/>    
+    <field name="name"/>
+    <field name="nom" tree_invisible="1"/>
+    <field name="insee" tree_invisible="1"/>
+    <field name="canton"/>
+    <field name="postal"/>
+    <field name="active"/>
+</tree>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="configuration">
+    <label name="code"/>
+    <field name="code"/>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="lib_long"/>
+    <field name="lib_long"/>
+    <label name="value"/>
+    <field name="value"/>               
+</form>

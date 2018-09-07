@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="QGis configuration" col="2">
+    <label name="vv"/>
+    <field name="vv" widget="selection"/>
+    <label name="version"/>
+    <field name="version"/>
+</form>

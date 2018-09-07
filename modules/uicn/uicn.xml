@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+    
+        <record model="ir.ui.icon" id="uicn_icon">
+            <field name="name">tryton-uicn</field>
+            <field name="path">icons/tryton-uicn.svg</field>
+        </record>
+        
+        <record model="ir.ui.icon" id="uicn_codes">
+            <field name="name">tryton-codes</field>
+            <field name="path">icons/tryton-codes.svg</field>
+        </record>
+    
+        <menuitem name="UICN" parent="ir.menu_administration" id="menu_uicn_uicn_admin" icon="tryton-uicn"/>
+        <menuitem parent="menu_uicn_uicn_admin" sequence="0" name="Codes" id="menu_uicn_uicn_configuration" icon="tryton-codes"/>
+        
+        <record model="ir.ui.view" id="uicn_uicn_view_tree">
+            <field name="model">uicn.uicn</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="uicn">
+                    <field name="binomial" />
+                    <field name="status" />
+                    <field name="id_num" />                   
+                    <field name="basinid" />
+                    <field name="presence" />
+                    <field name="origin" />
+                    <field name="seasonal" />
+                    <field name="compiler" />
+                    <field name="year" />
+                    <field name="citation" />
+                    <field name="source" />
+                    <field name="dist_comm" />
+                    <field name="island" />
+                    <field name="subspecies" />
+                    <field name="subpop" />
+                    <field name="tax_comm" />
+                    <field name="legend" />
+                    <field name="taxon" />
+                    <field name="catcri" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="uicn_uicn_view_form">
+            <field name="model">uicn.uicn</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="uicn" col="2">
+                    <notebook colspan="6">
+                        <page string="General" id="general">
+                            <label name="binomial"/>
+                            <field name="binomial"/>
+                            <label name="status" />
+                            <field name="status" />
+                            <label name="id_num"/>
+                            <field name="id_num" widget="url" />                            
+                            <label name="basinid"/>
+                            <field name="basinid"/>
+                            <label name="presence"/>
+                            <field name="presence" widget="selection"/>
+                            <label name="origin"/>
+                            <field name="origin" widget="selection"/>
+                            <label name="seasonal"/>
+                            <field name="seasonal"/>
+                            <label name="compiler"/>
+                            <field name="compiler"/>
+                            <label name="year"/>
+                            <field name="year"/>
+                            <label name="citation"/>
+                            <field name="citation"/>
+                            <label name="source"/>
+                            <field name="source"/>
+                            <label name="dist_comm"/>
+                            <field name="dist_comm"/>
+                            <label name="island"/>
+                            <field name="island"/>
+                            <label name="subspecies"/>
+                            <field name="subspecies"/>
+                            <label name="subpop"/>
+                            <field name="subpop"/>                            
+                            <label name="legend"/>
+                            <field name="legend"/>
+                            <label name="tax_comm" />
+                            <field name="tax_comm" colspan="6"/>
+                        </page>
+                        <page string="Catégorie et critères" id="catcri">                            
+                            <field name="catcri"/>
+                        </page>
+                        <page string="Taxons" id="taxon">                            
+                            <field name="taxon"/>
+                        </page>    
+                        <page string="Map" id="map">
+                            <label name="geom"/>
+                            <field name="geom"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_uicn_uicn_form">
+            <field name="name">UICN</field>
+            <field name="res_model">uicn.uicn</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_uicn_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="uicn_uicn_view_tree"/>
+            <field name="act_window" ref="act_uicn_uicn_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_uicn_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="uicn_uicn_view_form"/>
+            <field name="act_window" ref="act_uicn_uicn_form"/>
+        </record>
+        
+        <menuitem parent="menu_uicn_uicn_admin" id="menu_uicn_uicn_form" icon="tryton-list" action="act_uicn_uicn_form"/>
+        
+        <record model="ir.ui.view" id="uicn_presence_view_tree">
+            <field name="model">uicn.presence</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="presence">
+                    <field name="code" />
+                    <field name="name" />
+                    <field name="lib_long" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="uicn_presence_view_form">
+            <field name="model">uicn.presence</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="presence">
+                    <label name="code"/>
+                    <field name="code"/>
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="lib_long"/>
+                    <field name="lib_long"/>                   
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_uicn_presence_form">
+            <field name="name">Présence</field>
+            <field name="res_model">uicn.presence</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_presence_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="uicn_presence_view_tree"/>
+            <field name="act_window" ref="act_uicn_presence_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_presence_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="uicn_presence_view_form"/>
+            <field name="act_window" ref="act_uicn_presence_form"/>
+        </record>
+        
+        <menuitem parent="menu_uicn_uicn_configuration" id="menu_uicn_presence_form" icon="tryton-list" action="act_uicn_presence_form"/>
+        
+        <record model="ir.ui.view" id="uicn_origin_view_tree">
+            <field name="model">uicn.origin</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="origin">
+                    <field name="code" />
+                    <field name="name" />
+                    <field name="lib_long" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="uicn_origin_view_form">
+            <field name="model">uicn.origin</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="origin">
+                    <label name="code"/>
+                    <field name="code"/>
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="lib_long"/>
+                    <field name="lib_long"/>                   
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_uicn_origin_form">
+            <field name="name">Origine</field>
+            <field name="res_model">uicn.origin</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_origin_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="uicn_origin_view_tree"/>
+            <field name="act_window" ref="act_uicn_origin_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_origin_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="uicn_origin_view_form"/>
+            <field name="act_window" ref="act_uicn_origin_form"/>
+        </record>
+        
+        <menuitem parent="menu_uicn_uicn_configuration" id="menu_uicn_origin_form" icon="tryton-list" action="act_uicn_origin_form"/>
+                
+        <record model="ir.ui.view" id="uicn_seasonal_view_tree">
+            <field name="model">uicn.seasonal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="seasonal">
+                    <field name="code" />
+                    <field name="name" />
+                    <field name="lib_long" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="uicn_seasonal_view_form">
+            <field name="model">uicn.seasonal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="seasonal">
+                    <label name="code"/>
+                    <field name="code"/>
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="lib_long"/>
+                    <field name="lib_long"/>                   
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_uicn_seasonal_form">
+            <field name="name">Saison</field>
+            <field name="res_model">uicn.seasonal</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_seasonal_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="uicn_seasonal_view_tree"/>
+            <field name="act_window" ref="act_uicn_seasonal_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_uicn_seasonal_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="uicn_seasonal_view_form"/>
+            <field name="act_window" ref="act_uicn_seasonal_form"/>
+        </record>
+        
+        <menuitem parent="menu_uicn_uicn_configuration" id="menu_uicn_seasonal_form" icon="tryton-list" action="act_uicn_seasonal_form"/>
+        
+    <record model="ir.ui.view" id="uicn_cricat_pays_uicn_view_tree">
+		<field name="model">uicn.cricat_pays_uicn</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+            <![CDATA[
+            <tree string="cricat_pays_uicn">
+                <field name="pays" />
+		        <field name="division" />
+                <field name="taxon" />
+                <field name="catcri" />
+            </tree>
+            ]]>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="uicn_cricat_pays_uicn_view_form">
+        <field name="model">uicn.cricat_pays_uicn</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <![CDATA[
+            <form string="cricat_pays_uicn" col="2">
+                <label name="pays" />
+                <field name="pays" />
+		        <label name="division" />
+                <field name="division" />
+                <label name="taxon" />
+                <field name="taxon" />
+                <label name="catcri" />
+                <field name="catcri" />
+            </form>
+            ]]>
+        </field>
+    </record>
+
+    <record model="ir.action.act_window" id="act_uicn_cricat_pays_uicn_form">
+        <field name="name">Catégories et Critères par Pays</field>
+        <field name="res_model">uicn.cricat_pays_uicn</field></record>
+
+    <record model="ir.action.act_window.view" id="act_uicn_cricat_pays_uicn_form_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="uicn_cricat_pays_uicn_view_tree"/>
+        <field name="act_window" ref="act_uicn_cricat_pays_uicn_form"/>
+    </record>
+
+    <record model="ir.action.act_window.view" id="act_uicn_cricat_pays_uicn_form_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="uicn_cricat_pays_uicn_view_form"/>
+        <field name="act_window" ref="act_uicn_cricat_pays_uicn_form"/>
+    </record>
+
+	<menuitem parent="menu_uicn_uicn_configuration" id="menu_uicn_cricat_pays_uicn_form" icon="tryton-list" action="act_uicn_cricat_pays_uicn_form"/>                               
+                
+    </data>
+</tryton>

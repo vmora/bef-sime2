@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<form string="Commune">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="nom"/>
+    <field name="nom"/>
+    <label name="region"/>
+    <field name="region"/>
+    <label name="departement"/>
+    <field name="departement"/>
+    <label name="insee"/>
+    <field name="insee"/>
+    <label name="postal"/>
+    <field name="postal"/>    
+    <group id="group_altitude" col="6" colspan="4">
+        <label name="zmin"/>
+        <field name="zmin"/>
+        <label name="zmoy"/>
+        <field name="zmoy"/>
+        <label name="zmax"/>
+        <field name="zmax"/>
+    </group>
+    <group id="group_altitude" col="6" colspan="4">        
+        <label name="littoral"/>
+        <field name="littoral"/>
+        <label name="montagne"/>
+        <field name="montagne"/>
+        <label name="active"/>
+        <field name="active"/>
+    </group>
+    <notebook>        
+        <page string="Map" id="map" col="4">
+            <field name="commune_map" widget="image" img_width="640" img_height="480" colspan="4"/>
+            <newline/>    
+            <button string="Generate" name="generate" icon="tryton-executable" colspan="4"/>
+        </page>
+        <page string="Cantons" id="canton" col="4">
+            <field name="canton" colspan="4"/>
+        </page>
+        <page string="Population" id="population" col="4">
+            <field name="population" colspan="4"/>
+        </page> 
+        <page string="Littoral" id="littoral" col="2" states="{'invisible': Not(Bool(Eval('littoral')))}">
+            <label name="classement"/>
+            <field name="classement" widget="selection"/>
+            <label name="motif"/>
+            <field name="motif" widget="selection"/>
+            <label name="espace"/>
+            <field name="espace"/>
+        </page>
+        <page string="Montagne" id="montagne" col="2" states="{'invisible': Not(Bool(Eval('montagne')))}">
+            <label name="datemontagne"/>
+            <field name="datemontagne"/>
+        </page>
+    </notebook>
+</form>

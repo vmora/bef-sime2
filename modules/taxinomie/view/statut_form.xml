@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Statut" col="2">
+    <label name="code"/>
+    <field name="code"/>
+    <label name="description"/>
+    <field name="description"/>
+    <label name="definition"/>
+    <field name="definition"/>
+</form>

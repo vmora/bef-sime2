@@ -1,0 +1,74 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Obstetar <pascal.obstetar@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+msgctxt "field:wfs.conf,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:wfs.conf,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:wfs.conf,default_geo:"
+msgid "Enable default geometry"
+msgstr "Activer les géométries par défaut"
+
+msgctxt "field:wfs.conf,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:wfs.conf,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:wfs.conf,show_non_geo:"
+msgid "Show non-geographic models"
+msgstr "Afficher les modèles non géographiques"
+
+msgctxt "field:wfs.conf,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:wfs.conf,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:wfs.wfs,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "help:wfs.conf,default_geo:"
+msgid ""
+"This option lets Tryton gnerate default geometries on WFS for records "
+"containing empty geometries (required for QGis version < 2.0)"
+msgstr ""
+"Cette option permet de créer des géométries par défaut en WFS pour les "
+"entrées n'ayant pas de géométries (requis pour les version de QGis < "
+"2.0)"
+
+msgctxt "model:ir.action,name:act_wfs_conf_form"
+msgid "WFS server configuration"
+msgstr "Configuration du serveur WFS"
+
+msgctxt "model:ir.ui.menu,name:menu_wfs_conf"
+msgid "WFS server"
+msgstr "Serveur WFS"
+
+msgctxt "model:wfs.conf,name:"
+msgid "WFS server"
+msgstr "Serveur WFS"
+
+msgctxt "model:wfs.wfs,name:"
+msgid "Wfs"
+msgstr "Wfs"

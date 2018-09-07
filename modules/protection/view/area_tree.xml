@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="Area">
+    <field name="id_mnhn" />
+    <field name="name" />
+    <field name="typo" />
+    <field name="date" />
+    <field name="version" />
+    <field name="url" />
+</tree>

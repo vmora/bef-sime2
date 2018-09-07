@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tree string="Statut">
+    <field name="code" />
+    <field name="description" />
+    <field name="definition" />
+</tree>

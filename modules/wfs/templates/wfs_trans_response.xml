@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WFS_TransactionResponse
+        xmlns="http://www.opengis.net/wfs"
+        xmlns:py="http://genshi.edgewall.org/"
+        xmlns:ogc="http://www.opengis.net/ogc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        version="1.1.0" updateSequence="0"
+        xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/WFS-capabilities.xsd">
+    <TransactionResult>
+        <Status>
+            <SUCCESS/>
+        </Status>
+    </TransactionResult>
+    <TransactionSummary>
+        <totalUpdated py:if="len(updates)">${len(updates)}</totalUpdated>
+        <totalInserted py:if="len(inserts)">${len(inserts)}</totalInserted>
+        <totalDeleted py:if="len(deletes)">${len(deletes)}</totalDeleted>
+    </TransactionSummary>
+    <InsertResult py:if="len(inserts)">
+        <Feature py:for="insert_no, insert in enumerate(inserts)" handle="STMT${insert_no + 1}">
+            <ogc:FeatureId fid="${insert}"/>
+        </Feature>
+    </InsertResult>
+</WFS_TransactionResponse>

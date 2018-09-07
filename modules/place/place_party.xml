@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!--
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Copyright (c) 2012-2013 Laurent Defert
+Copyright (c) 2012-2013 Bio Eco Forests <contact@bioecoforests.com>
+-->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="act_place_party_view_form">
+            <field name="model">party.party</field>
+            <field name="inherit" ref="party.party_view_form" />
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/form/notebook/page[@id=&quot;general&quot;]"
+                        position="after">
+                        <page string="Places" col="1" id="places">
+                            <field name="place"/>                            
+                        </page>                        
+                        <page string="Map" id="map" col="2">                                                                        
+                            <field name="party_image" colspan="1" widget="image" img_width="640" img_height="480"/>                                 
+                            <field name="party_map" colspan="1" widget="image" img_width="640" img_height="480"/>
+                            <button string="Edit" name="lol_edit" icon="tryton-executable" />                           
+                            <button string="Generate" name="generate" icon="tryton-executable" />
+                        </page>                                                                                 
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>       
+
+        <record model="ir.ui.view" id="act_place_view_tree">
+            <field name="model">place.place</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree>
+                        <field name="active"/>                        
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="lib_long"/>
+                        <field name="address"/>
+                        <field name="party"/>
+                        <field name="html" tree_invisible="1" />                      
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="act_place_view_form">
+            <field name="model">place.place</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form col="2">
+                        <notebook colspan="2">
+                            <page string="General" id="general">                                                              
+                                <label name="code"/>
+                                <field name="code"/>
+                                <label name="active"/>
+                                <field name="active"/>
+                                <label name="name"/>
+                                <field name="name"/>
+                                <label name="lib_long"/>
+                                <field name="lib_long"/>
+                                <label name="address"/>
+                                <field name="address"/>
+                                <label name="html"/>
+                                <field name="html" />                                                        
+                                <notebook>
+                                    <page string="Comment and Map" id="comment" col="2">
+                                        <field name="place_image" colspan="1" widget="image" img_width="640" img_height="480"/>
+                                        <field name="place_image_map" colspan="1" widget="image" img_width="640" img_height="480"/>
+                                        <button string="Edit" name="lol_edit" icon="tryton-executable" />                           
+                                        <button string="Generate" name="generate" icon="tryton-executable" />
+                                    </page>                                
+                               </notebook>
+                           </page>
+                        </notebook>
+                    </form>
+                ]]>
+            </field>
+        </record>
+        
+        <record model="ir.action.report" id="report_lol_edit">
+            <field name="name">Open in QGis...</field>
+            <field name="model">place.place</field>
+            <field name="report_name">place.place.qgis</field>
+            <field name="report">qgis/qgis.qgs</field>
+        </record>
+        <record model="ir.action.keyword" id="report_lol_edit_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">place.place,-1</field>
+            <field name="action" ref="report_lol_edit"/>
+        </record> 
+
+        <record model="ir.action.report" id="report_party_edit">
+            <field name="name">Open in QGis...</field>
+            <field name="model">party.party</field>
+            <field name="report_name">party.party.qgis</field>
+            <field name="report">qgis/qgis.qgs</field>
+        </record>
+        <record model="ir.action.keyword" id="report_party_edit_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="report_party_edit"/>
+        </record> 
+
+        <record model="ir.action.act_window" id="act_place_form_view">
+            <field name="name">Places</field>
+            <field name="res_model">place.place</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_place_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="act_place_view_tree"/>
+            <field name="act_window" ref="act_place_form_view"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_place_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="act_place_view_form"/>
+            <field name="act_window" ref="act_place_form_view"/>
+        </record>
+        
+        <menuitem parent="party.menu_party" sequence="0" id="menu_place" icon="tryton-list" action="act_place_form_view"/>
+        
+        <record model="ir.ui.view" id="place_party_rel_view_tree">		
+		    <field name="model">place.place-party.party</field>
+		    <field name="type">tree</field>
+		    <field name="arch" type="xml">
+			    <![CDATA[
+			    <tree string="Parties">                    
+				    <field name="party" />
+				    <field name="category" />
+			    </tree>
+			    ]]>
+		    </field>
+		</record>
+
+		<record model="ir.ui.view" id="place_party_rel_view_form">		
+		    <field name="model">place.place-party.party</field>
+		    <field name="type">form</field>
+		    <field name="arch" type="xml">
+			    <![CDATA[
+			    <form string="Parties">                    
+				    <label name="party"/>
+				    <field name="party"/>
+				    <label name="category"/>
+				    <field name="category"/>
+			    </form>
+			    ]]>
+		    </field>
+		</record>        
+               
+        <record model="ir.action.act_window" id="act_place_party_rel_form">
+            <field name="name">Places</field>
+            <field name="res_model">place.place-party.party</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_place_party_rel_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="place_party_rel_view_tree"/>
+            <field name="act_window" ref="act_place_party_rel_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_place_party_rel_form_view2">
+          <field name="sequence" eval="20"/>
+          <field name="view" ref="place_party_rel_view_form"/>
+          <field name="act_window" ref="act_place_party_rel_form"/>
+        </record>       
+
+    </data>
+</tryton>
+

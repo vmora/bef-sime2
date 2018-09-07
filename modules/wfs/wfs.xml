@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Copyright (c) 2013 Bio Eco Forests <contact@bioecoforests.com>
+Copyright (c) 2013 Laurent Defert
+-->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="wfs_conf_view_form">
+            <field name="model">wfs.conf</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="WFS configuration" col="2">
+                        <label name="show_non_geo"/>
+                        <field name="show_non_geo"/>
+                        <label name="default_geo"/>
+                        <field name="default_geo"/>
+                        <label name="prefix_url"/>
+                        <field name="prefix_url"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_wfs_conf_form">
+            <field name="name">WFS server configuration</field>
+            <field name="res_model">wfs.conf</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_wfs_conf_form_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="wfs_conf_view_form"/>
+            <field name="act_window" ref="act_wfs_conf_form"/>
+        </record>
+        <menuitem parent="ir.menu_administration" name = "WFS server" id="menu_wfs_conf" icon="tryton-list" action="act_wfs_conf_form"/>
+    </data>
+</tryton>

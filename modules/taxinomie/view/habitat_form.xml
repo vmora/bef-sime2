@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Habitat" col="2">
+    <label name="code"/>
+    <field name="code"/>
+    <label name="description"/>
+    <field name="description"/>
+    <label name="remarques"/>
+    <field name="remarques"/>
+</form>

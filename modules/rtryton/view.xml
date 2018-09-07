@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.action.act_window" id="act_rtryton_view">
+            <field name="name">View</field>
+            <field name="res_model">rtryton.view</field>
+            <!--<field name="context">{'model': 11}</field>-->
+        </record>
+        <menuitem parent="menu_r" id="menu_rtryton_view" icon="tryton-list" name="Données"/>
+
+        <!--
+        <record model="ir.action.act_window" id="act_select_view">
+            <field name="name">Données</field>
+            <field name="res_model">rtryton.view</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_select_view_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref=""/>
+            <field name="act_window" ref="act_select_view"/>
+        </record>
+
+        <record model="ir.ui.view" id="select_view_open_start_view_form">
+            <field name="model">rtryton.select_view.open.start</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Données">
+                    <label name="data"/>
+                    <field name="data"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_open_select_view">
+            <field name="name">Données</field>
+            <field name="wiz_name">rtryton.select_view.open</field>
+        </record>
+
+        <menuitem sequence="1" action="act_open_select_view" id="menu_select_view" icon="tryton-graph" />
+        -->
+    </data>
+</tryton>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<tree string="Taxinomie">
+    <field name="regne"/>
+    <field name="phylum"/>
+    <field name="classe"/>
+    <field name="ordre"/>
+    <field name="famille"/>
+    <field name="group1_inpn"/>
+    <field name="group2_inpn"/>
+    <field name="cd_nom"/>
+    <field name="cd_taxsup"/>
+    <field name="cd_ref"/>
+    <field name="rang"/>
+    <field name="lb_nom"/>
+    <field name="lb_auteur"/>
+    <field name="nom_complet"/>
+    <field name="nom_valide"/>
+    <field name="nom_vern"/>
+    <field name="nom_vern_eng"/>
+    <field name="habitat"/>
+    <field name="url"/>
+    <field name="statut"/>
+</tree>

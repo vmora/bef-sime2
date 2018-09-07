@@ -1,0 +1,140 @@
+\documentclass[a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[table]{xcolor} 
+\usepackage{hyperref} 
+\usepackage{tikz, times}
+\usepackage{fancyvrb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfsys}
+\usepackage{keyval}
+\usepackage{subfig}
+\usepackage{pgf}
+\usepackage{lscape}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{vwcol}
+\usepackage{graphicx}
+\usepackage{datatool}
+
+\voffset -2cm
+\hoffset 0cm
+\oddsidemargin 0cm
+\evensidemargin -0.5cm
+\textwidth 17cm
+\topmargin 1cm
+\textheight 24cm
+\parindent 0cm
+\columnsep 0.7cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<<OptionsGenerales, include=FALSE>>=
+opts_chunk$set(concordance=T,include=T,tidy=F, warning=F, comment=F, error=F)
+opts_chunk$set(size='normalsize')
+opts_chunk$set(fig.path='figures/', dev='pdf')
+opts_chunk$set(fig.align='center',fig.show='hold')
+options(width=45)
+opts_knit$set(eval.after = 'fig.cap') # evaluate fig.cap after the chunk
+par(mar=c(0,0,0,0))
+@
+
+<<Librairies, echo=FALSE, warning=F, error=F, comment=F, message=F >>=
+library("ggplot2")
+library("reshape2")
+library("rgdal")
+library("RgoogleMaps")
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Table des matières
+\tableofcontents
+\mainmatter
+
+% Table des figures
+\listoffigures
+
+\chapter{Généralités}
+
+\section{Situation générale du site}
+
+Situé en France ce site présente peu d'impact sur les zones à statuts de protection fortes.
+
+<<Situation generale, echo=FALSE, size='footnotesize', include=TRUE, fig.pos='h', fig.height=4, fig.width=4, fig.cap="Situation générale du site.", error=F, comment=F, warning=F, message=F>>=
+poly<-spTransform(place.place, CRS("+init=epsg:4326"))
+lat <- coordinates(poly)[2]
+lon <- coordinates(poly)[1]
+center = c(lat, lon)
+marker <- paste("&markers=color:blue|label:I|", lat, sep="")
+marker <- paste(marker, lon, sep=",")
+France <- GetMap(center=center, zoom=5, markers = marker, destfile = "france1.png", maptype="hybrid") 
+PlotOnStaticMap(France, center=center, add = F)
+text(lat,lon,place.place$rec_name)
+@
+
+\section{Situation localisée du site}
+
+<<Situation localisee, echo=FALSE, size='footnotesize', include=TRUE, fig.pos='h', fig.height=4, fig.width=4, fig.cap="Situation localisée du site.", error=F, comment=F, warning=F, message=F>>=
+MyMap <- GetMap(center=center, zoom=10, markers = marker, destfile = "/tmp/MyTile.png", maptype="hybrid")
+protection <- spTransform(protection.area, CRS("+init=epsg:4326"))
+protection <- SpatialPolygons(protection@polygons,proj4string=protection@proj4string)
+buff<-place.place
+tampon500 <- gBuffer(buff, width=500, quadsegs=20)
+tampon500<-spTransform(tampon500, CRS("+init=epsg:4326"))
+tampon2000 <- gBuffer(buff, width=2000, quadsegs=20)
+tampon2000<-spTransform(tampon2000, CRS("+init=epsg:4326"))
+tampon5000 <- gBuffer(buff, width=5000, quadsegs=20)
+tampon5000<-spTransform(tampon5000, CRS("+init=epsg:4326"))
+tampon10000 <- gBuffer(buff, width=10000, quadsegs=20)
+tampon10000<-spTransform(tampon10000, CRS("+init=epsg:4326"))
+PlotPolysOnStaticMap(MyMap, protection, lwd=.5, col = rgb(1,1,1,0.4), add = F)
+PlotPolysOnStaticMap(MyMap, tampon10000, lwd=.5, col = rgb(1,0,0,0.1), add = T)
+PlotPolysOnStaticMap(MyMap, tampon5000, lwd=.5, col = rgb(1,0,0,0.1), add = T)
+PlotPolysOnStaticMap(MyMap, tampon2000, lwd=.5, col = rgb(1,0,0,0.2), add = T)
+PlotPolysOnStaticMap(MyMap, tampon500, lwd=.5, col = rgb(1,0,0,0.3), add = T)
+
+text(lat,lon,place.place$rec_name)
+legend("topright", c("Protection","Buffer 500m","Buffer 2000m","Buffer 5000m","Buffer 10000m"), fill = c(rgb(1,1,1,0.4),rgb(1,0,0,0.1),rgb(1,0,0,0.2),rgb(1,0,0,0.3),rgb(1,0,0,0.4) ), title="Légende")
+@
+
+\section{Diagramme des surfaces par type d'espaces protégés}
+
+<<Diagramme, echo=FALSE, size='footnotesize', include=TRUE, fig.pos='h', fig.height=4, fig.width=4, fig.cap="Diagramme des surfaces par type d'espaces protégés.", error=F, comment=F, warning=F, message=F>>=
+Data <- data.frame(protection.surface_statut_buffer[c("statut", "surface", "type")])
+colnames(Data)<-c("Statut", "Surface", "Type")
+ggplot(Data, aes(x=Type, y=Surface, fill=Statut))+
+  geom_bar(stat="identity")+
+  theme(legend.position=c(0.22,0.8))
+@
+
+
+\section{Graphique radar représentant les sites en proportion de leur surface par type de statuts de protection.}
+
+<<Graphique, echo=FALSE, size='footnotesize', include=TRUE, fig.pos='h', fig.height=4, fig.width=4, fig.cap="Graphique radar représentant les sites en proportion de leur surface par type de statuts de protection.", error=F, comment=F, warning=F, message=F>>=
+Data <- data.frame(protection.surface_statut_buffer[c("statut", "surface", "type")])
+colnames(Data)<-c("Statut","Surface", "Type")
+tab.m <- melt(Data, id=c("Statut", "Type"))
+ggplot(tab.m, aes(x=variable, y=value, fill=Statut)) + 
+  geom_bar(stat='identity', position='fill') +  coord_polar(theta = "y") + 
+  scale_x_discrete("") + theme(axis.title.y=element_blank()) +  
+  theme(legend.position=c(0.9,0.26)) +
+  facet_wrap(~Type, ncol=2)
+@
+
+
+\section{Cartographie des sites concernés.}
+
+<<Cartographie, echo=FALSE, size='footnotesize', include=TRUE, fig.pos='h', fig.height=4, fig.width=4, fig.cap="Cartographie des sites concernés.", error=F, comment=F, warning=F, message=F>>=
+plot(protection.area['id'], col=rainbow(25,alpha=0.35))
+@
+
+\end{document}

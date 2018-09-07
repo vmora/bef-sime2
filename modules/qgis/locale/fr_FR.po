@@ -1,0 +1,126 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Obstetar <pascal.obstetar@bioecoforests.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: fr_FR\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgctxt "field:qgis.conf,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:qgis.conf,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:qgis.conf,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:qgis.conf,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:qgis.conf,version:"
+msgid "Version utilisée de QGIS"
+msgstr "Version utilisée de QGIS"
+
+msgctxt "field:qgis.conf,vv:"
+msgid "Version proposée de QGIS"
+msgstr "Version proposée de QGIS"
+
+msgctxt "field:qgis.conf,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:qgis.conf,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:qgis.mapable,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:qgis.version,code:"
+msgid "Version de QGIS disponible"
+msgstr "Version de QGIS disponible"
+
+msgctxt "field:qgis.version,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:qgis.version,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:qgis.version,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:qgis.version,name:"
+msgid "Libellé de la version de QGIS"
+msgstr "Version de QGIS disponible"
+
+msgctxt "field:qgis.version,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:qgis.version,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:qgis.version,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "model:ir.action,name:act_qgis_conf_form"
+msgid "QGis project configuration"
+msgstr "Configuration des projets QGis"
+
+msgctxt "model:ir.action,name:act_qgis_version_form"
+msgid "Version de QGIS"
+msgstr "Version de QGIS"
+
+msgctxt "model:ir.ui.menu,name:menu_qgis"
+msgid "QGIS"
+msgstr "QGIS"
+
+msgctxt "model:ir.ui.menu,name:menu_qgis_conf"
+msgid "QGIS en cours"
+msgstr "QGIS (version utilisée)"
+
+msgctxt "model:ir.ui.menu,name:menu_qgis_version"
+msgid "Version de QGIS"
+msgstr "Version de QGIS"
+
+msgctxt "model:qgis.conf,name:"
+msgid "QGis"
+msgstr "QGiS"
+
+msgctxt "model:qgis.mapable,name:"
+msgid "Mapable"
+msgstr "Mapable"
+
+msgctxt "model:qgis.version,name:"
+msgid "Version de QGIS"
+msgstr "Version de QGIS"
+
+msgctxt "selection:qgis.conf,version:"
+msgid "QGis 1.9.0"
+msgstr "QGiS 1.9.0"
+
+msgctxt "view:qgis.conf:"
+msgid "QGis configuration"
+msgstr "QGiS configuration"
+
+msgctxt "view:qgis.version:"
+msgid "Version QGIS"
+msgstr "Version QGIS"

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree string="Zone d'Intérêt Communautaire pour les Oiseaux">
+    <field name="id_diren" />
+    <field name="id_iba" />
+    <field name="id_spn" />
+    <field name="name" />
+    <field name="version" />
+</tree>

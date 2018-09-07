@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Copyright (c) 2013 Bio Eco Forests <contact@bioecoforests.com>
+Copyright (c) 2013 Laurent Defert
+-->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="map_tree_view">
+            <field name="model">map.map</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree>
+                    <field name="name"/>
+
+                    <field name="ll_lon"/>
+                    <field name="ll_lat"/>
+                    <field name="ur_lon"/>
+                    <field name="ur_lat"/>
+                    <field name="autoscale"/>
+
+                    <field name="width"/>
+                    <field name="height"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="map_form_view">
+            <field name="model">map.map</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Map" col="2">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <notebook colspan="2">
+                        <page string="Data" col="3" id="data">
+                            <label name="legend_length"/>
+                            <field name="legend_length"/>
+                            <field name="legend_uom" widget="selection"/>
+                        </page>
+                        <page string="Background" col="2" id="background">
+                            <label name="map_provider"/>
+                            <field name="map_provider"/>
+                            <label name="autoscale"/>
+                            <field name="autoscale"/>
+                            <label name="ll_lon"/>
+                            <field name="ll_lon"/>
+                            <label name="ll_lat"/>
+                            <field name="ll_lat"/>
+                            <label name="ur_lon"/>
+                            <field name="ur_lon"/>
+                            <label name="ur_lat"/>
+                            <field name="ur_lat"/>
+                        </page>
+                        <page string="Image" col="2" id="image">
+                            <label name="width"/>
+                            <field name="width"/>
+                            <label name="height"/>
+                            <field name="height"/>
+                            <field name="image" colspan="2" widget="image"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_map_form">
+            <field name="name">Maps</field>
+            <field name="res_model">map.map</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_map_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="map_tree_view"/>
+            <field name="act_window" ref="act_map_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_map_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="map_form_view"/>
+            <field name="act_window" ref="act_map_form"/>
+        </record>
+        <menuitem name="Maps" sequence="0" id="menu_map"/>
+        <menuitem parent="menu_map" sequence="1"
+            action="act_map_form" id="menu_map_form"/>
+    </data>
+</tryton>

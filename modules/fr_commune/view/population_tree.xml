@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree string="Population">
+    <field name="annee" />
+    <field name="total" />
+    <field name="pop_0014" />
+    <field name="pop_1529" />
+    <field name="pop_3044" />
+    <field name="pop_4559" />
+    <field name="pop_6074" />
+    <field name="pop_75p" />
+</tree>

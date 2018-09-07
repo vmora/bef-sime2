@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Reserve_biologique">
+    <field name="id_mnhn" />
+    <field name="name" />
+    <field name="type" />
+    <field name="mixte" />    
+    <field name="date" />
+    <field name="version" />
+    <field name="url" />
+</tree>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        
+        <!-- Departement -->
+        <record model="ir.ui.view" id="departement_view_tree">
+            <field name="model">fr.departement</field>
+            <field name="type">tree</field>
+            <field name="name">departement_tree</field>
+        </record>
+        <record model="ir.ui.view" id="departement_view_form">
+            <field name="model">fr.departement</field>
+            <field name="type">form</field>
+            <field name="name">departement_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_departement_form">
+            <field name="name">Département</field>
+            <field name="res_model">fr.departement</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_departement_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="departement_view_tree"/>
+            <field name="act_window" ref="act_departement_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_departement_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="departement_view_form"/>
+            <field name="act_window" ref="act_departement_form"/>
+        </record>        
+        <menuitem parent="menu_fr_admin" sequence="2" id="menu_departement_form" icon="tryton-list" action="act_departement_form"/>
+
+        <record model="ir.action.report" id="report_departement_edit">
+            <field name="name">Open in QGis...</field>
+            <field name="model">fr.departement</field>
+            <field name="report_name">fr.departement.qgis</field>
+            <field name="report">qgis/qgis.qgs</field>
+        </record>
+        <record model="ir.action.keyword" id="report_departement_edit_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">fr.departement,-1</field>
+            <field name="action" ref="report_departement_edit"/>
+        </record>
+
+        <!-- generate all maps -->
+        <record model="ir.action.wizard" id="generateD">
+            <field name="name">Generate maps...</field>
+            <field name="model">fr.departement</field>
+            <field name="wiz_name">fr.departement_generate</field>
+        </record>
+        <record model="ir.action.keyword" id="generate_all_kwd_D">
+            <field name="keyword">form_action</field>
+            <field name="model">fr.departement,-1</field>
+            <field name="action" ref="generateD"/>
+        </record>
+    </data>
+</tryton>

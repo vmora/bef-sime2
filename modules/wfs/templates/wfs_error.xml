@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<ServiceExceptionReport
+   version="1.2.0"
+   xmlns="http://www.opengis.net/ogc"
+   xmlns:tal="http://xml.zope.org/namespaces/tal">
+   <ServiceException>${error_msg}</ServiceException>
+</ServiceExceptionReport>

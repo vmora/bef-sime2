@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="UICN - Présence de taxons sur sites">
+    <label name="tiers"/>
+    <field name="tiers" widget="selection"/>
+    <label name="status"/>
+    <field name="status"/>
+</form>

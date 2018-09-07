@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Copyright (c) 2013 Bio Eco Forests <contact@bioecoforests.com>
+Copyright (c) 2013 Laurent Defert
+-->
+<tryton>
+    <data>
+    
+        <record model="ir.ui.icon" id="tryton_qgis">
+            <field name="name">tryton-qgis</field>
+            <field name="path">icons/tryton-qgis.svg</field>
+        </record>
+        <menuitem name="QGIS" parent="ir.menu_administration" id="menu_qgis" icon="tryton-qgis"/>
+        
+        <!-- Version de QGIS -->
+        <record model="ir.ui.view" id="qgis_version_view_tree">
+            <field name="model">qgis.version</field>
+            <field name="type">tree</field>
+            <field name="name">version_tree</field>
+        </record>
+        <record model="ir.ui.view" id="qgis_version_view_form">
+            <field name="model">qgis.version</field>
+            <field name="type">form</field>
+            <field name="name">version_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_qgis_version_form">
+            <field name="name">Version de QGIS</field>
+            <field name="res_model">qgis.version</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_qgis_version_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="qgis_version_view_tree"/>
+            <field name="act_window" ref="act_qgis_version_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_qgis_version_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="qgis_version_view_form"/>
+            <field name="act_window" ref="act_qgis_version_form"/>
+        </record>        
+        <menuitem parent="menu_qgis" id="menu_qgis_version" icon="tryton-list" action="act_qgis_version_form"/>
+        
+        <!-- Version par défaut de QGIS -->
+        <record model="ir.ui.view" id="qgis_conf_view_form">
+            <field name="model">qgis.conf</field>
+            <field name="type">form</field>
+            <field name="name">conf_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_qgis_conf_form">
+            <field name="name">QGis project configuration</field>
+            <field name="res_model">qgis.conf</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_qgis_conf_form_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="qgis_conf_view_form"/>
+            <field name="act_window" ref="act_qgis_conf_form"/>
+        </record>
+        <menuitem parent="menu_qgis" name = "QGIS en cours" id="menu_qgis_conf" icon="tryton-list" action="act_qgis_conf_form"/>
+    </data>
+</tryton>

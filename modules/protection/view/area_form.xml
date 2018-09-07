@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<form string="Area" col="2">
+    <notebook colspan="6">
+        <page string="General" id="general">
+            <label name="id_mnhn" />
+            <field name="id_mnhn" />
+            <label name="name" />
+            <field name="name" />
+            <label name="typo" />
+            <field name="typo" />
+            <label name="date" />
+            <field name="date" />
+            <label name="version" />
+            <field name="version" />
+            <label name="url" />
+            <field name="url" widget="url" />
+        </page>                        
+        <page string="Map" id="map" col="2">
+            <field name="area_image" colspan="1" widget="image" img_width="640" img_height="480"/>
+            <field name="area_map" colspan="1" widget="image" img_width="640" img_height="480"/>                         
+            <button string="Edit" name="area_edit" icon="tryton-executable" />
+            <button string="Generate" name="generate" icon="tryton-executable" />                           
+        </page>
+    </notebook>
+</form>

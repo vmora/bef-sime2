@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<graph string="Surface entre Buffer et Tiers" type="vbar">
+    <x>
+        <field name="type" />
+    </x>
+    <y>
+        <field name="surface"/>
+    </y>
+</graph>
+

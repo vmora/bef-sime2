@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.icon" id="tryton_r">
+            <field name="name">tryton-r</field>
+            <field name="path">icons/tryton-r.svg</field>
+        </record>
+        <menuitem name="R" parent="ir.menu_administration" id="menu_r" icon="tryton-r"/>
+
+        <record model="ir.action.act_window" id="act_script">
+            <field name="name">Script</field>
+            <field name="res_model">rtryton.script</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_data">
+            <field name="name">Data</field>
+            <field name="res_model">rtryton.data</field>
+        </record>
+
+        <menuitem parent="menu_r" id="script" icon="tryton-list" action="act_script"/>
+        <menuitem parent="menu_r" id="data" icon="tryton-list" action="act_data"/>
+    </data>
+</tryton>

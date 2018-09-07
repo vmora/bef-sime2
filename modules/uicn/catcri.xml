@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+  
+    <record model="ir.ui.view" id="uicn_catcri_view_form">
+        <field name="model">uicn.catcri</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <![CDATA[
+            <form string="catcri" col="2">
+                <label name="code" />
+                <field name="code" />
+                <label name="name" />
+                <field name="name" />
+                <label name="description" />
+                <field name="description" />                
+                <label name="active"/>
+                <field name="active"/>
+                <label name="parent"/>
+                <field name="parent"/>
+            </form>
+            ]]>
+        </field>
+    </record>
+
+	<record model="ir.ui.view" id="uicn_catcri_view_tree">
+		<field name="model">uicn.catcri</field>
+		<field name="type">tree</field>
+        <field name="field_childs">childs</field>
+		<field name="arch" type="xml">
+            <![CDATA[
+            <tree string="catcri">
+                <field name="code" />
+                <field name="name" />
+                <field name="description" />                
+                <field name="parent" tree_invisible="1"/>
+                <field name="childs" tree_invisible="1"/>
+            </tree>
+            ]]>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="uicn_catcri_view_list">
+        <field name="model">uicn.catcri</field>
+        <field name="type">tree</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <![CDATA[
+            <tree string="catcri">
+                <field name="rec_name" expand="1"/>
+            </tree>
+            ]]>
+        </field>
+    </record>
+    <record model="ir.action.act_window" id="act_uicn_catcri_tree">
+        <field name="name">Catégories et Critères</field>
+        <field name="res_model">uicn.catcri</field>
+        <field name="domain">[('parent', '=', False)]</field>
+    </record>    
+    <record model="ir.action.act_window.view" id="act_uicn_catcri_tree_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="uicn_catcri_view_tree"/>
+        <field name="act_window" ref="act_uicn_catcri_tree"/>
+    </record>
+
+    <record model="ir.action.act_window.view" id="act_uicn_catcri_form_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="uicn_catcri_view_form"/>
+        <field name="act_window" ref="act_uicn_catcri_tree"/>
+    </record>
+
+    <menuitem parent="menu_uicn_uicn_configuration" id="menu_uicn_catcri_tree" icon="tryton-list" action="act_uicn_catcri_tree"/>
+    
+    <record model="ir.action.act_window" id="act_uicn_catcri_list">
+        <field name="name">Catégories et Critères</field>
+        <field name="res_model">uicn.catcri</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_uicn_catcri_list_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="uicn_catcri_view_list"/>
+        <field name="act_window" ref="act_uicn_catcri_list"/>
+    </record>
+    <record model="ir.action.act_window.view" id="act_uicn_catcri_list_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="uicn_catcri_view_form"/>
+        <field name="act_window" ref="act_uicn_catcri_list"/>
+    </record>
+
+    <menuitem parent="menu_uicn_catcri_tree" id="menu_uicn_catcri_list" icon="tryton-list" action="act_uicn_catcri_list"/>
+    
+    </data>
+</tryton>

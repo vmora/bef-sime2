@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<form string="Zone d'Intérêt Communautaire pour les Oiseaux" col="2">
+    <notebook colspan="6">
+        <page string="General" id="general">
+            <label name="id_diren" />
+            <field name="id_diren" />
+            <label name="id_iba" />
+            <field name="id_iba" />
+            <label name="id_spn" />
+            <field name="id_spn" />
+            <label name="name" />
+            <field name="name" />
+            <label name="version" />
+            <field name="version" />
+        </page>                        
+        <page string="Map" id="map" col="2">
+            <field name="zico_image" colspan="1" widget="image" img_width="640" img_height="480"/>
+            <field name="zico_map" colspan="1" widget="image" img_width="640" img_height="480"/>                         
+            <button string="Edit" name="zico_edit" icon="tryton-executable" />
+            <button string="Generate" name="generate" icon="tryton-executable" />                           
+        </page>
+    </notebook>
+</form>

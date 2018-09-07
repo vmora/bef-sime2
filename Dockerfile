@@ -13,7 +13,7 @@ RUN npm install -g bower
 RUN curl https://downloads.tryton.org/${SERIES}/tryton-sao-last.tgz | tar zxf - -C /
 RUN cd /package && bower install --allow-root
 
-FROM ubuntu:18.04
+FROM debian:stretch-slim
 MAINTAINER Pascal Obstetar <pascal.obstetar@bioecoforests.com>
 
 # ---------- DEBUT --------------
@@ -21,14 +21,10 @@ MAINTAINER Pascal Obstetar <pascal.obstetar@bioecoforests.com>
 # On évite les messages debconf
 ENV DEBIAN_FRONTEND noninteractive
 
-# version de tryton
-ENV SERIES 4.8
-ENV LANG C.UTF-8
-
 # Ajoute gosub pour faciliter les actions en root
 ENV GOSU_VERSION 1.10
 RUN set -x \
-	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget gnupg && rm -rf /var/lib/apt/lists/* \
+	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && rm -rf /var/lib/apt/lists/* \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
 	&& wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
 	&& export GNUPGHOME="$(mktemp -d)" \
@@ -37,20 +33,12 @@ RUN set -x \
 	&& rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
 	&& chmod +x /usr/local/bin/gosu \
 	&& gosu nobody true \
-	&& apt-get purge -y --auto-remove ca-certificates \
-	&& rm -rf /var/lib/apt/lists/*
+	&& apt-get purge -y --auto-remove ca-certificates
+
+# version de tryton
+ENV SERIES 4.8
+ENV LANG C.UTF-8
 	
-# On ajoute le dépôt QGIS
-RUN echo "deb http://qgis.org/ubuntu bionic main" > /etc/apt/sources.list.d/qgis.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
-
-# On ajoute le dépôt R
-RUN echo "deb http://cran.irsn.fr/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/rcran.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-
-# On met à jour
-RUN apt-get -y update
-
 RUN groupadd -r trytond \
     && useradd --no-log-init -r -d /var/lib/trytond -m -g trytond trytond \
     && mkdir /var/lib/trytond/db && chown trytond:trytond /var/lib/trytond/db \
@@ -59,6 +47,8 @@ RUN groupadd -r trytond \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         curl \
+        gnupg \
+        software-properties-common \        
         python3 \
         python3-pip \
         python3-setuptools \
@@ -85,6 +75,21 @@ RUN apt-get update \
         python3-tz \
         python3-zeep \
     && rm -rf /var/lib/apt/lists/*
+    
+# On ajoute le dépôt QGIS et R    
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
+    
+# On ajoute le dépôt QGIS
+#RUN echo "deb http://qgis.org/debian stretch main" > /etc/apt/sources.list.d/qgis.list
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
+
+# On ajoute le dépôt R
+#RUN echo "deb http://cran.irsn.fr/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/rcran.list
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+# On met à jour
+RUN apt-get -y update    
     
 RUN pip3 install --no-cache-dir trytond-gis  
 

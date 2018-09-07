@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<graph string="Présence du Taxon (priorité UICN)" type="vbar">
+    <x>
+        <field name="famille"/>                        
+    </x>
+    <y>
+        <field name="occ"/>                        
+    </y>
+</graph>
+

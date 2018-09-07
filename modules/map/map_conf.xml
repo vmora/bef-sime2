@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Copyright (c) 2013 Bio Eco Forests <contact@bioecoforests.com>
+Copyright (c) 2013 Laurent Defert
+-->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="map_conf_view_form">
+            <field name="model">map.conf</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Map configuration" col="2">
+                        <label name="map_provider"/>
+                        <field name="map_provider"/>
+                        <label colspan="2" name="unused" string="Please check the policy usage of the provider you are using to make sure you respect their term of use."/>
+                        <label name="osm_url"/>
+                        <field name="osm_url"/>
+                        <label name="img_format"/>
+                        <field name="img_format"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_map_conf_form">
+            <field name="name">Maps configuration</field>
+            <field name="res_model">map.conf</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_map_conf_form_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="map_conf_view_form"/>
+            <field name="act_window" ref="act_map_conf_form"/>
+        </record>
+        <menuitem parent="ir.menu_administration" name = "Maps" id="menu_map_conf" icon="tryton-list" action="act_map_conf_form"/>
+    </data>
+</tryton>

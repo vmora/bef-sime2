@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tryton>
+    <data>
+        <record model="protection.type" id="1">
+            <field name="code">RAMSAR</field>
+            <field name="name">Site Ramsar</field>
+        </record>
+        <record model="protection.type" id="2">
+            <field name="code">APB</field>
+            <field name="name">Arrêté de protection de biotope</field>
+        </record>
+        <record model="protection.type" id="3">
+            <field name="code">PN cœur</field>
+            <field name="name">Parc national (zone cœur)</field>
+        </record>
+        <record model="protection.type" id="4">
+            <field name="code">PN adhésion</field>
+            <field name="name">Parc national (zone d'adhésion)</field>
+        </record>
+        <record model="protection.type" id="5">
+            <field name="code">PNM</field>
+            <field name="name">Parc naturel marin</field>
+        </record>
+        <record model="protection.type" id="6">
+            <field name="code">PNR</field>
+            <field name="name">Parc naturel régional</field>
+        </record>
+        <record model="protection.type" id="7">
+            <field name="code">RNR</field>
+            <field name="name">Réserve naturelle régionale</field>
+        </record>
+        <record model="protection.type" id="8">
+            <field name="code">RNN</field>
+            <field name="name">Réserve naturelle nationale</field>
+        </record>
+        <record model="protection.type" id="9">
+            <field name="code">RNC</field>
+            <field name="name">Réserve naturelle Corse</field>
+        </record>
+        <record model="protection.type" id="10">
+            <field name="code">RNCFS</field>
+            <field name="name">Réserve naturelle de chasse et faune sauvage</field>
+        </record>
+        <record model="protection.type" id="11">
+            <field name="code">SIC</field>
+            <field name="name">Site d'importance communautaire</field>
+        </record>
+        <record model="protection.type" id="12">
+            <field name="code">ZPS</field>
+            <field name="name">Zone de protection spéciale</field>
+        </record>
+        <record model="protection.type" id="13">
+            <field name="code">Bios centrale</field>
+            <field name="name">Réserve de biosphère (zone centrale)</field>
+        </record>
+        <record model="protection.type" id="14">
+            <field name="code">Bios tampon</field>
+            <field name="name">Réserve de biosphère (zone tampon)</field>
+        </record>
+        <record model="protection.type" id="15">
+            <field name="code">Bios coopération</field>
+            <field name="name">Réserve de biosphère (aire de coopération)</field>
+        </record>
+        <record model="protection.type" id="16">
+            <field name="code">CDL</field>
+            <field name="name">Conservatoire du littoral</field>
+        </record>
+        <record model="protection.type" id="17">
+            <field name="code">CEN</field>
+            <field name="name">Conservatoire d'espaces naturels</field>
+        </record>
+        <record model="protection.type" id="18">
+            <field name="code">ZNIEFF 1</field>
+            <field name="name">Zone naturelle d'intérêt écologique faunistique et floristique de type 1 (continentale)</field>
+        </record>
+        <record model="protection.type" id="19">
+            <field name="code">ZNIEFF 2</field>
+            <field name="name">Zone naturelle d'intérêt écologique faunistique et floristique de type 2 (continentale)</field>
+        </record>        
+        <record model="protection.type" id="20">
+            <field name="code">RB</field>
+            <field name="name">Réserve biologique</field>
+        </record>
+        <record model="protection.type" id="21">
+            <field name="code">ZICO</field>
+            <field name="name">Zone d'intérêt communautaire pour les oiseaux</field>
+        </record>
+	<record model="protection.type" id="22">
+            <field name="code">ZNIEFF 1 mer</field>
+            <field name="name">Zone naturelle d'intérêt écologique faunistique et floristique de type 1 (mer)</field>
+        </record>
+        <record model="protection.type" id="23">
+            <field name="code">ZNIEFF 2 mer</field>
+            <field name="name">Zone naturelle d'intérêt écologique faunistique et floristique de type 2 (mer)</field>
+        </record>
+    </data>
+</tryton>

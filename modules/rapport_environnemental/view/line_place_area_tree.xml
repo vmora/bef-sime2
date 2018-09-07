@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<tree string="Lignes entre Tiers et Statuts de Protection">
+    <field name="party"/>
+</tree>

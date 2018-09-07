@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<FeatureCollection
+   xmlns="http://www.opengis.net/wfs"
+   xmlns:tryton="http://www.tryton.org/"
+   xmlns:ogc="http://www.opengis.net/ogc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+   xmlns:py="http://genshi.edgewall.org/"
+   xmlns:gml="http://www.opengis.net/gml"
+   xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/WFS-basic.xsd ${url}?SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=DescribeFeatureType=&amp;TYPENAME=${ttype}&amp;OUTPUTFORMAT=XMLSCHEMA">
+    <gml:boundedBy>
+        <gml:null>
+            missing
+        </gml:null>
+    </gml:boundedBy>
+    <py:for each="elem in elems">
+        ${elem}
+    </py:for>
+</FeatureCollection>

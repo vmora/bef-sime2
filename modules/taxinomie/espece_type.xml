@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>                
+        <!-- Espèce type -->
+        <record model="ir.ui.view" id="taxinomie_espece_type_view_tree">
+		    <field name="model">taxinomie.espece_type</field>
+		    <field name="type">tree</field>
+		    <field name="name">espece_type_tree</field>
+        </record>
+        <record model="ir.ui.view" id="taxinomie_espece_type_view_form">
+            <field name="model">taxinomie.espece_type</field>
+            <field name="type">form</field>
+            <field name="name">espece_type_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_taxinomie_espece_type_form">
+            <field name="name">Typologie des protections des espèces</field>
+            <field name="res_model">taxinomie.espece_type</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_taxinomie_espece_type_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="taxinomie_espece_type_view_tree"/>
+            <field name="act_window" ref="act_taxinomie_espece_type_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_taxinomie_espece_type_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="taxinomie_espece_type_view_form"/>
+            <field name="act_window" ref="act_taxinomie_espece_type_form"/>
+        </record>
+	    <menuitem parent="menu_taxinomie_codes" sequence="1" id="menu_taxinomie_espece_type_form" icon="tryton-list" action="act_taxinomie_espece_type_form"/>
+    </data>
+</tryton>

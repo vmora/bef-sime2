@@ -1,0 +1,412 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pascal Obstetar <pascal.obstetar@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgctxt "error:protection.type:"
+msgid "A type of protected area with the same name already exists."
+msgstr "Un type d'aire protégée avec le même nom existe déjà !"
+
+msgctxt "field:protection.area,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:protection.area,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:protection.area,date:"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "field:protection.area,espace:"
+msgid "Type of protected area"
+msgstr "Type d'aire protégée"
+
+msgctxt "field:protection.area,geom:"
+msgid "Geometry"
+msgstr "Géométrie"
+
+msgctxt "field:protection.area,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.area,id_mnhn:"
+msgid "ID national"
+msgstr "ID national"
+
+msgctxt "field:protection.area,image:"
+msgid "Image"
+msgstr "Image"
+
+msgctxt "field:protection.area,image_filename:"
+msgid "Filename"
+msgstr "Nom du fichier"
+
+msgctxt "field:protection.area,image_map:"
+msgid "Image map"
+msgstr "Carte"
+
+msgctxt "field:protection.area,name:"
+msgid "Site name"
+msgstr "Nom du site"
+
+msgctxt "field:protection.area,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:protection.area,typo:"
+msgid "Area type"
+msgstr "Type d'aire protégée"
+
+msgctxt "field:protection.area,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:protection.area,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:protection.reserve_biologique,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:protection.reserve_biologique,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:protection.reserve_biologique,date:"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "field:protection.reserve_biologique,geom:"
+msgid "Geometry"
+msgstr "Géométrie"
+
+msgctxt "field:protection.reserve_biologique,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.reserve_biologique,id_mnhn:"
+msgid "ID national"
+msgstr "ID national"
+
+msgctxt "field:protection.reserve_biologique,image:"
+msgid "Image"
+msgstr "Image"
+
+msgctxt "field:protection.reserve_biologique,image_filename:"
+msgid "Filename"
+msgstr "Nom du fichier"
+
+msgctxt "field:protection.reserve_biologique,image_map:"
+msgid "Image map"
+msgstr "Carte"
+
+msgctxt "field:protection.reserve_biologique,mixte:"
+msgid "Mixte"
+msgstr "Mixte"
+
+msgctxt "field:protection.reserve_biologique,name:"
+msgid "Site name"
+msgstr "Nom du site"
+
+msgctxt "field:protection.reserve_biologique,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:protection.reserve_biologique,type:"
+msgid "Type"
+msgstr "Type"
+
+msgctxt "field:protection.reserve_biologique,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:protection.reserve_biologique,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "field:protection.type,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:protection.type,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:protection.type,id:"
+msgid "ID"
+msgstr "Identifiant"
+
+msgctxt "field:protection.type,name:"
+msgid "Space name"
+msgstr "Nom du statut"
+
+msgctxt "field:protection.type,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:protection.type,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:protection.type,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
+msgctxt "help:protection.area,id_mnhn:"
+msgid "National identifiant"
+msgstr "Identifiant national"
+
+msgctxt "help:protection.area,name:"
+msgid "Site name"
+msgstr "Nom du site"
+
+msgctxt "help:protection.reserve_biologique,id_mnhn:"
+msgid "National identifiant"
+msgstr "Identifiant national"
+
+msgctxt "help:protection.reserve_biologique,mixte:"
+msgid "Mixte"
+msgstr "Mixte"
+
+msgctxt "help:protection.reserve_biologique,name:"
+msgid "Site name"
+msgstr "Nom du site"
+
+msgctxt "model:ir.action,name:report_area_edit"
+msgid "Open in QGis..."
+msgstr "Ouvrir dans QGis..."
+
+msgctxt "model:ir.action,name:window_arrete_protection_biotope"
+msgid "Arrêtés de protection de biotope"
+msgstr "Arrêtés de protection de biotope"
+
+msgctxt "model:ir.action,name:window_conservatoire_du_littoral"
+msgid "Conservatoires du littoral"
+msgstr "Conservatoires du littoral"
+
+msgctxt "model:ir.action,name:window_conservatoire_espaces_naturels"
+msgid "Conservatoires d’espaces naturels"
+msgstr "Conservatoires d’espaces naturels"
+
+msgctxt "model:ir.action,name:window_parc_national"
+msgid "Parcs nationaux"
+msgstr "Parcs nationaux"
+
+msgctxt "model:ir.action,name:window_parc_naturel_marin"
+msgid "Parcs naturels marins"
+msgstr "Parcs naturels marins"
+
+msgctxt "model:ir.action,name:window_parc_naturel_regional"
+msgid "Parcs naturels régionaux"
+msgstr "Parcs naturels régionaux"
+
+msgctxt "model:ir.action,name:window_reserve_biologique"
+msgid "Réserves biologiques"
+msgstr "Réserves biologiques"
+
+msgctxt "model:ir.action,name:window_reserve_de_biosphere"
+msgid "Réserves de biosphère"
+msgstr "Réserves de biosphère"
+
+msgctxt "model:ir.action,name:window_reserve_naturelle_chasse_faune_sauvage"
+msgid "Réserves naturelles de chasse et faune sauvage"
+msgstr "Réserves naturelles de chasse et faune sauvage"
+
+msgctxt "model:ir.action,name:window_reserve_naturelle_corse"
+msgid "Réserves naturelles Corse"
+msgstr "Réserves naturelles Corse"
+
+msgctxt "model:ir.action,name:window_reserve_naturelle_nationale"
+msgid "Réserves naturelles nationales"
+msgstr "Réserves naturelles nationales"
+
+msgctxt "model:ir.action,name:window_reserve_naturelle_regionale"
+msgid "Réserves naturelles régionales"
+msgstr "Réserves naturelles régionales"
+
+msgctxt "model:ir.action,name:window_reserve_naturelle_volontaire"
+msgid "Réserves naturelles volontaires"
+msgstr "Réserves naturelles volontaires"
+
+msgctxt "model:ir.action,name:window_site_importance_communautaire"
+msgid "Site d'importance communautaire"
+msgstr "Site d'importance communautaire"
+
+msgctxt "model:ir.action,name:window_site_importance_communautaire_oiseaux"
+msgid "Zones d’importance communautaire pour les oiseaux"
+msgstr "Zones d’importance communautaire pour les oiseaux"
+
+msgctxt "model:ir.action,name:window_site_ramsar"
+msgid "Sites Ramsar"
+msgstr "Sites Ramsar"
+
+msgctxt "model:ir.action,name:window_site_znieffi"
+msgid ""
+"Zone Naturelle d’Intérêt Ecologique Faunistique et Floristique de type I"
+msgstr ""
+"Zone Naturelle d’Intérêt Écologique Faunistique et Floristique de type I"
+
+msgctxt "model:ir.action,name:window_site_znieffii"
+msgid ""
+"Zone Naturelle d’Intérêt Ecologique Faunistique et Floristique de type II"
+msgstr ""
+"Zone Naturelle d’Intérêt Écologique Faunistique et Floristique de type II"
+
+msgctxt "model:ir.action,name:window_zone_de_protection_speciale"
+msgid "Zones de protection spéciale"
+msgstr "Zones de protection spéciale"
+
+msgctxt "model:ir.ui.menu,name:menu_arrete_protection_biotope"
+msgid "Arrêtés de protection de biotope"
+msgstr "Arrêtés de protection de biotope"
+
+msgctxt "model:ir.ui.menu,name:menu_conservatoire_du_littoral"
+msgid "Conservatoires du littoral"
+msgstr "Conservatoires du littoral"
+
+msgctxt "model:ir.ui.menu,name:menu_conservatoire_espaces_naturels"
+msgid "Conservatoires d’espaces naturels"
+msgstr "Conservatoires d’espaces naturels"
+
+msgctxt "model:ir.ui.menu,name:menu_parc_national"
+msgid "Parcs nationaux"
+msgstr "Parcs nationaux"
+
+msgctxt "model:ir.ui.menu,name:menu_parc_naturel_marin"
+msgid "Parcs naturels marins"
+msgstr "Parcs naturels marins"
+
+msgctxt "model:ir.ui.menu,name:menu_parc_naturel_regional"
+msgid "Parcs naturels régionaux"
+msgstr "Parcs naturels régionaux"
+
+msgctxt "model:ir.ui.menu,name:menu_protection"
+msgid "Protections"
+msgstr "Protections"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_biologique"
+msgid "Réserves biologiques"
+msgstr "Réserves biologiques"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_de_biosphere"
+msgid "Réserves de biosphère"
+msgstr "Réserves de biosphère"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_naturelle_chasse_faune_sauvage"
+msgid "Réserves naturelles de chasse et faune sauvage"
+msgstr "Réserves naturelles de chasse et faune sauvage"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_naturelle_corse"
+msgid "Réserves naturelles Corse"
+msgstr "Réserves naturelles Corse"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_naturelle_nationale"
+msgid "Réserves naturelles nationales"
+msgstr "Réserves naturelles nationales"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_naturelle_regionale"
+msgid "Réserves naturelles régionales"
+msgstr "Réserves naturelles régionales"
+
+msgctxt "model:ir.ui.menu,name:menu_reserve_naturelle_volontaire"
+msgid "Réserves naturelles volontaires"
+msgstr "Réserves naturelles volontaires"
+
+msgctxt "model:ir.ui.menu,name:menu_site_importance_communautaire"
+msgid "Site d'importance communautaire"
+msgstr "Site d'importance communautaire"
+
+msgctxt "model:ir.ui.menu,name:menu_site_importance_communautaire_oiseaux"
+msgid "Zones d’importance communautaire pour les oiseaux"
+msgstr "Zones d’importance communautaire pour les oiseaux"
+
+msgctxt "model:ir.ui.menu,name:menu_site_ramsar"
+msgid "Sites Ramsar"
+msgstr "Sites Ramsar"
+
+msgctxt "model:ir.ui.menu,name:menu_site_znieffi"
+msgid ""
+"Zone Naturelle d’Intérêt Ecologique Faunistique et Floristique de type I"
+msgstr ""
+"Zone Naturelle d’Intérêt Écologique Faunistique et Floristique de type I"
+
+msgctxt "model:ir.ui.menu,name:menu_site_znieffii"
+msgid ""
+"Zone Naturelle d’Intérêt Ecologique Faunistique et Floristique de type II"
+msgstr ""
+"Zone Naturelle d’Intérêt Écologique Faunistique et Floristique de type II"
+
+msgctxt "model:ir.ui.menu,name:menu_zone_de_protection_speciale"
+msgid "Zones de protection spéciale"
+msgstr "Zones de protection spéciale"
+
+msgctxt "model:protection.area,name:"
+msgid "Protected area"
+msgstr "Aire protégée"
+
+msgctxt "model:protection.reserve_biologique,name:"
+msgid "Biological reserve"
+msgstr "Réserve biologique"
+
+msgctxt "model:protection.type,name:"
+msgid "Type of protected area"
+msgstr "Type d'aire protégée"
+
+msgctxt "selection:protection.reserve_biologique,type:"
+msgid "Directed"
+msgstr "Dirigée"
+
+msgctxt "selection:protection.reserve_biologique,type:"
+msgid "Integral"
+msgstr "Intégrale"
+
+msgctxt "view:protection.area:"
+msgid "Area"
+msgstr "Zone"
+
+msgctxt "view:protection.area:"
+msgid "Edit"
+msgstr "Éditer"
+
+msgctxt "view:protection.area:"
+msgid "General"
+msgstr "Général"
+
+msgctxt "view:protection.area:"
+msgid "Generate"
+msgstr "Générer"
+
+msgctxt "view:protection.area:"
+msgid "Map"
+msgstr "Carte"
+
+msgctxt "view:protection.reserve_biologique:"
+msgid "Edit"
+msgstr "Éditer"
+
+msgctxt "view:protection.reserve_biologique:"
+msgid "General"
+msgstr "Général"
+
+msgctxt "view:protection.reserve_biologique:"
+msgid "Generate"
+msgstr "Générer"
+
+msgctxt "view:protection.reserve_biologique:"
+msgid "Map"
+msgstr "Carte"
+
+msgctxt "view:protection.reserve_biologique:"
+msgid "Reserve_biologique"
+msgstr "Réserve biologique"

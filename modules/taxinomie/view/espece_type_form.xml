@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form string="Typologie des protections des espèces" col="2">
+    <label name="cd_protection"/>
+    <field name="cd_protection"/>
+    <label name="article"/>
+    <field name="article"/>
+    <label name="intitule"/>
+    <field name="intitule"/>
+    <label name="arrete"/>
+    <field name="arrete"/>
+    <label name="url_inpn"/>
+    <field name="url_inpn" widget="url"/>
+    <label name="url"/>
+    <field name="url" widget="url"/>
+    <label name="date_arrete"/>
+    <field name="date_arrete"/>
+    <label name="type"/>
+    <field name="type"/>
+</form>

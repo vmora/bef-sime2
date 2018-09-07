@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <!-- icônes -->
+        <record model="ir.ui.icon" id="protection_icon">
+            <field name="name">tryton-protection</field>
+            <field name="path">icons/tryton-protection.svg</field>
+        </record>
+        <record model="ir.ui.icon" id="protection_codes">
+            <field name="name">tryton-codes</field>
+            <field name="path">icons/tryton-codes.svg</field>
+        </record>
+
+        <!-- menu -->
+        <menuitem name="Rapports" id="menu_rapport"/>
+        <menuitem parent="menu_rapport" name="Configuration" icon="tryton-preferences" id="menu_protection_configuration"/>
+
+        <!-- Configuration -->
+        <record model="ir.ui.view" id="configuration_view_tree">
+            <field name="model">protection.configuration</field>
+            <field name="type">tree</field>
+            <field name="name">conf_tree</field>
+        </record>
+        <record model="ir.ui.view" id="configuration_view_form">
+            <field name="model">protection.configuration</field>
+            <field name="type">form</field>
+            <field name="name">conf_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_configuration_form">
+            <field name="name">Configuration</field>
+            <field name="res_model">protection.configuration</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_configuration_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="configuration_view_tree"/>
+            <field name="act_window" ref="act_configuration_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_configuration_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="configuration_view_form"/>
+            <field name="act_window" ref="act_configuration_form"/>
+        </record>            
+        <menuitem parent="menu_protection_configuration" id="menu_configuration_form" icon="tryton-list" action="act_configuration_form"/>
+         
+        <!-- Surface statut buffer -->         
+        <record model="ir.ui.view" id="surface_tiers_surface_view_tree">
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="type">tree</field>
+            <field name="name">buffer_tree</field>
+        </record>
+        <record model="ir.ui.view" id="surface_tiers_surface_view_graph">
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="type">graph</field>
+            <field name="name">buffer_graph</field>
+        </record>
+        <record model="ir.action.act_window" id="act_surface_tiers_surface_form">
+            <field name="name">Protections - Buffer (ha/Tiers/Statuts)</field>
+            <field name="res_model">protection.surface_statut_buffer</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_surface_tiers_surface_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="surface_tiers_surface_view_tree"/>
+            <field name="act_window" ref="act_surface_tiers_surface_form"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_surface_tiers_surface_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="surface_tiers_surface_view_graph"/>
+            <field name="act_window" ref="act_surface_tiers_surface_form"/>
+        </record>
+        <record model="ir.ui.view" id="surface_tiers_surface_open_start_view_form">
+            <field name="model">protection.surface_statut_buffer.open.start</field>
+            <field name="type">form</field>
+            <field name="name">buffer_form</field>
+        </record>
+        <record model="ir.action.wizard" id="act_surface_tiers_surface_open">
+            <field name="name">Protection - Surface/Tiers/Protection</field>
+            <field name="wiz_name">protection.surface_statut_buffer.open</field>
+        </record>
+        
+        <!-- Rapport bio -->        
+        <record model="ir.action.report" id="report_bef">
+            <field name="name">Rapport Bio</field>
+            <field name="model">party.party</field>
+            <field name="report_name">party.rapport_bio</field>
+            <field name="report">rapport_environnemental/bef_out.odt</field>            
+        </record>
+        <record model="ir.action.keyword" id="report_bef_party">
+            <field name="keyword">form_print</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="report_bef"/>
+        </record>        
+        <record model="ir.action.report" id="report_odt">
+            <field name="name">Rapport (odt)</field>
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="report_name">protection.rapport_odt</field>
+            <field name="report">rapport_environnemental/buffer.odt</field>            
+        </record>
+        <record model="ir.action.keyword" id="report_odt_site">
+            <field name="keyword">form_print</field>
+            <field name="model">protection.surface_statut_buffer,-1</field>
+            <field name="action" ref="report_odt"/>
+        </record>
+        <record model="ir.action.report" id="report_rmdhtml">
+            <field name="name">Rapport (html)</field>
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="report_name">rtryton.htmlreport</field>
+            <field name="report">rapport_environnemental/bef.Rmd</field>
+        </record>
+        <record model="ir.action.keyword" id="report_rmdhtml_kwd">
+            <field name="keyword">form_print</field>
+            <field name="model">protection.surface_statut_buffer,-1</field>
+            <field name="action" ref="report_rmdhtml"/>
+        </record>
+        <record model="ir.action.report" id="report_rnwpdf">
+            <field name="name">Rapport (pdf)</field>
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="report_name">rtryton.pdfreport</field>
+            <field name="report">rapport_environnemental/bef.Rnw</field>
+        </record>
+        <record model="ir.action.keyword" id="report_rnwpdf_kwd">
+            <field name="keyword">form_print</field>
+            <field name="model">protection.surface_statut_buffer,-1</field>
+            <field name="action" ref="report_rnwpdf"/>
+        </record>            
+        <menuitem parent="menu_rapport" action="act_surface_tiers_surface_open" icon="tryton-graph" id="menu_protection_surface_tiers_surface"/>   
+
+        <!-- UICN -->
+        <record model="ir.ui.view" id="taxon_uicn_presence_view_tree">
+            <field name="model">uicn.taxon_uicn_presence</field>
+            <field name="type">tree</field>
+            <field name="name">uicn_tree</field>
+        </record>
+        <record model="ir.ui.view" id="taxon_uicn_presence_view_graph">
+            <field name="model">uicn.taxon_uicn_presence</field>
+            <field name="type">graph</field>
+            <field name="name">uicn_graph1</field>
+        </record>
+        <record model="ir.ui.view" id="taxon_uicn_presence_view2_graph">
+            <field name="model">uicn.taxon_uicn_presence</field>
+            <field name="type">graph</field>
+            <field name="name">uicn_graph2</field>
+        </record>
+        <record model="ir.action.act_window" id="act_taxon_uicn_presence_form">
+            <field name="name">UICN - Présence de taxons sur sites</field>
+            <field name="res_model">uicn.taxon_uicn_presence</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_taxon_uicn_presence_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="taxon_uicn_presence_view_tree"/>
+            <field name="act_window" ref="act_taxon_uicn_presence_form"/>
+        </record> 
+        <record model="ir.action.act_window.view"
+            id="act_taxon_uicn_presence_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="taxon_uicn_presence_view_graph"/>
+            <field name="act_window" ref="act_taxon_uicn_presence_form"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_taxon_uicn_presence_form_view3">
+            <field name="sequence" eval="30"/>
+            <field name="view" ref="taxon_uicn_presence_view2_graph"/>
+            <field name="act_window" ref="act_taxon_uicn_presence_form"/>
+        </record>
+        <record model="ir.ui.view" id="taxon_uicn_presence_open_start_view_form">
+            <field name="model">protection.taxon_uicn_presence.open.start</field>
+            <field name="type">form</field>
+            <field name="name">uicn_form</field>
+        </record>
+        <record model="ir.action.wizard" id="act_taxon_uicn_presence_open">
+            <field name="name">UICN - Présence de taxons sur sites</field>
+            <field name="wiz_name">protection.taxon_uicn_presence.open</field>
+        </record>
+        <record model="ir.action.report" id="report_uicn">
+            <field name="name">Liste UICN</field>
+            <field name="model">uicn.taxon_uicn_presence</field>
+            <field name="report_name">uicn.rapport_uicn</field>
+            <field name="report">rapport_environnemental/uicn.odt</field>            
+        </record>
+        <record model="ir.action.keyword" id="report_uicn_site">
+            <field name="keyword">form_print</field>
+            <field name="model">uicn.taxon_uicn_presence,-1</field>
+            <field name="action" ref="report_uicn"/>
+        </record>        
+        <menuitem parent="menu_rapport" id="menu_uicn_taxon_presence_form" icon="tryton-graph" action="act_taxon_uicn_presence_open"/>
+        
+        <!-- generate all area maps -->
+        <record model="ir.action.wizard" id="generatearea">
+            <field name="name">Generate all area maps...</field>
+            <field name="model">protection.surface_statut_buffer</field>
+            <field name="wiz_name">protection.generateareamap</field>
+        </record>
+        <record model="ir.action.keyword" id="generatearea_all_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">protection.surface_statut_buffer,-1</field>
+            <field name="action" ref="generatearea"/>
+        </record>
+
+        <!-- line area place -->         
+        <record model="ir.ui.view" id="line_place_area_view_tree">
+            <field name="model">protection.line_place_area</field>
+            <field name="type">tree</field>
+            <field name="name">line_place_area_tree</field>
+        </record>
+        <record model="ir.ui.view" id="line_place_area_view_form">
+            <field name="model">protection.line_place_area</field>
+            <field name="type">form</field>
+            <field name="name">line_place_area_form1</field>
+        </record>
+        <record model="ir.action.act_window" id="act_line_place_area_form">
+            <field name="name">Lignes entre Tiers et Statuts de Protection</field>
+            <field name="res_model">protection.line_place_area</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_line_place_area_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="line_place_area_view_tree"/>
+            <field name="act_window" ref="act_line_place_area_form"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_line_place_area_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="line_place_area_view_form"/>
+            <field name="act_window" ref="act_line_place_area_form"/>
+        </record>
+        <record model="ir.ui.view" id="line_place_area_open_start_view_form">
+            <field name="model">protection.line_place_area.open.start</field>
+            <field name="type">form</field>
+            <field name="name">line_place_area_form2</field>
+        </record>
+        <record model="ir.action.wizard" id="act_line_place_area_open">
+            <field name="name">Lignes entre Tiers et Statuts de Protection</field>
+            <field name="wiz_name">protection.line_place_area.open</field>
+        </record>
+        <record model="ir.action.report" id="report_image_edit">
+            <field name="name">Open in QGis...</field>
+            <field name="model">protection.line_place_area</field>
+            <field name="report_name">protection.line_place_area.qgis</field>
+            <field name="report">qgis/qgis.qgs</field>
+        </record>
+        <record model="ir.action.keyword" id="report_image_edit_kwd">
+            <field name="keyword">form_action</field>
+            <field name="model">protection.line_place_area,-1</field>
+            <field name="action" ref="report_image_edit"/>
+        </record> 
+        <menuitem parent="menu_rapport" action="act_line_place_area_open" icon="tryton-graph" id="menu_protection_line_place_area"/>
+                
+    </data>
+</tryton>
