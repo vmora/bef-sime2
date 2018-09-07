@@ -37,7 +37,8 @@ RUN set -x \
 	&& rm -r "$GNUPGHOME" /usr/local/bin/gosu.asc \
 	&& chmod +x /usr/local/bin/gosu \
 	&& gosu nobody true \
-	&& apt-get purge -y --auto-remove ca-certificates
+	&& apt-get purge -y --auto-remove ca-certificates \
+	&& rm -rf /var/lib/apt/lists/*
 	
 # On ajoute le dépôt QGIS
 RUN echo "deb http://qgis.org/ubuntu bionic main" > /etc/apt/sources.list.d/qgis.list
@@ -96,7 +97,7 @@ RUN pip3 install --no-cache-dir \
 
 # On installe les dépendances de PostgreSQL, R et QGIS
 # Pour QGIS, R, Tryton
-RUN apt-get update && apt-get install --yes --force-yes git python3-gdal python3-rpy2 libgeos-dev apache2 qgis qgis-server libapache2-mod-fcgid
+RUN apt-get update && apt-get install --yes --force-yes git python3-gdal python3-rpy2 libgeos-dev apache2 qgis qgis-server libapache2-mod-fcgid && rm -rf /var/lib/apt/lists/*
 
 # On ajoute le groupe www-data à root pour QGIS-server
 RUN addgroup www-data root
