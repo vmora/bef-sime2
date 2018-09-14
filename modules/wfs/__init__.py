@@ -19,14 +19,36 @@ Copyright (c) 2013 Laurent Defert
 
 """
 
-from trytond.pool import Pool
+import time
+import logging
 
-from .wfs import Wfs
-from .wfs_conf import WfsConf
+from trytond.transaction import Transaction
+from trytond.application import app
 
+from trytond.protocols.wrappers import with_pool, with_transaction, \
+        user_application
 
-def register():
-    Pool.register(
-        Wfs,
-        WfsConf,
-        module='wfs', type_='model')
+from .wfs import WfsRequest
+
+logger = logging.getLogger(__name__)
+
+wfs_application = user_application('wfs')
+
+@app.route('/<database_name>/wfs', methods=['GET', 'POST'])
+@with_pool
+@with_transaction()
+@wfs_application
+def wfs(request, pool):
+    print("ARGS REQUEST", request.args)
+    begin = time.time()
+    req = WfsRequest()
+    User = pool.get('res.user')
+    user = User(Transaction().user)
+    try:
+        ret = req.handle(**request.args)
+    except Exception:
+        logger.exception('Wfs request failure')
+        ret = req.format_exc()
+    logger.debug('WFS request handled in %0.1fs', (time.time() - begin))
+    return ret
+

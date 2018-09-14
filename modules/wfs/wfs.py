@@ -26,7 +26,7 @@ import re
 import sys
 import time
 from traceback import format_exception, format_exception_only
-from urllib import unquote
+from urllib.parse import unquote
 from xml.dom.minidom import parseString
 
 from genshi.builder import ElementFactory
@@ -34,7 +34,7 @@ from genshi.core import Markup
 from genshi.template import TemplateLoader, MarkupTemplate
 from psycopg2.extensions import AsIs, QuotedString
 
-from trytond.config import CONFIG
+from trytond.config import config
 from trytond.model import ModelView
 from trytond.pool import Pool
 from trytond.rpc import RPC
@@ -110,7 +110,7 @@ GEO_TYPES = [
 
 TRYTON_FIELDS = ['create_uid', 'create_date', 'write_uid', 'write_date', 'rec_name']
 
-logger = logging.getLogger("server")
+logger = logging.getLogger(__name__)
 
 
 def get_wfs_type(ttype):
@@ -190,17 +190,17 @@ class WfsRequest(object):
             auto_reload=True,
             default_class=MarkupTemplate,
         )
-        WfsConf = Pool().get('wfs.conf')
-        conf = WfsConf.search([])
+        #WfsConf = Pool().get('wfs.conf')
+        #conf = WfsConf.search([])
 
-        if len(conf) == 0:
-            self.show_non_geo = False
-            self.default_geo = False
-        else:
-            self.show_non_geo = conf[0].show_non_geo
-            self.default_geo = conf[0].default_geo
+        #if len(conf) == 0:
+        self.show_non_geo = False
+        self.default_geo = False
+        #else:
+        #    self.show_non_geo = conf[0].show_non_geo
+        #    self.default_geo = conf[0].default_geo
 
-        self.url = WfsConf.get_url()
+        self.url = "my.dummy.url" #WfsConf.get_url()
         self.model_access = Pool().get('ir.model.access')
         self.field_access = Pool().get('ir.model.field.access')
 
@@ -219,9 +219,15 @@ class WfsRequest(object):
 
     def _parse_args(self, **kw):
         _kw = {}
-        for arg, val in kw.iteritems():
-            if isinstance(val, str):
-                _kw[arg.lower()] = unquote(val)
+        print("_parse_args kw", kw)
+        for arg, val in kw.items():
+            print("_parse_args", arg, val, type(val))
+            if len(val) != 1:
+                raise Exception('Multiple definitions expected of {}'.format(arg))
+            if isinstance(val[0], str):
+                _kw[arg.lower()] = unquote(val[0])
+            else:
+                raise Exception('Value type for {} is {} expected bytes'.format(arg, type(val[0])))
 
         if 'acceptversions' in _kw:
             version = _kw.pop('acceptversions')
@@ -245,6 +251,7 @@ class WfsRequest(object):
 
     def handle(self, **kw):
         _kw = self._parse_args(**kw)
+        print("_kw", _kw)
         request = _kw.pop('request').lower()
 
         if request in WFS_REQUESTS and hasattr(self, request):
@@ -432,7 +439,7 @@ class WfsRequest(object):
             records = Model.search(filter_domain, limit=maxfeatures)
 
         if not records: records = []
-        print len(records), ' features returned'
+        #print len(records), ' features returned'
 
         fbbox = None
         elems = []
@@ -668,7 +675,7 @@ class WfsRequest(object):
 
     def format_exc(self):
         wfs_error = self.tmpl_loader.load('wfs_error.xml')
-        if CONFIG['log_level'].upper() == 'DEBUG':
+        if config['log_level'].upper() == 'DEBUG':
             tb_s = ''.join(format_exception(*sys.exc_info()))
             for path in sys.path:
                 tb_s = tb_s.replace(path, '')
@@ -680,44 +687,4 @@ class WfsRequest(object):
         return rendered
 
 
-class Wfs(ModelView):
-    'Wfs'
-    __name__ = 'wfs.wfs'
 
-    @classmethod
-    def __setup__(cls):
-        super(Wfs, cls).__setup__()
-        cls.__rpc__.update({
-            'wfs': RPC(),
-            'wfs_POST': RPC(False),
-        })
-
-        if len(CONFIG['http']) == 0:
-            raise Exception('You have to enable the http protocol in tryton.conf in order to use this module.')
-
-    @classmethod
-    def wfs(cls, **kw):
-        begin = time.time()
-        req = WfsRequest()
-        try:
-            ret = req.handle(**kw)
-        except Exception:
-            logger.exception('Wfs request failure')
-            ret = req.format_exc()
-        #logger.debug('WFS response: %s', ret)
-        logger.debug('WFS request handled in %0.1fs', (time.time() - begin))
-        return ret
-
-    @classmethod
-    def wfs_POST(cls, data, **kw):
-        logger.debug('WFS post content: %s', data)
-        begin = time.time()
-        req = WfsRequest()
-        try:
-            ret = req.post(data, **kw)
-        except Exception:
-            logger.exception('Wfs POST request failure')
-            ret = req.format_exc()
-        #logger.debug('WFS POST response: %s', ret)
-        logger.debug('WFS POST request handled in %0.1fs', (time.time() - begin))
-        return ret

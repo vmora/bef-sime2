@@ -24,7 +24,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Ajoute gosub pour faciliter les actions en root
 ENV GOSU_VERSION 1.10
 RUN set -x \
-	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && rm -rf /var/lib/apt/lists/* \
+	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget gpg dirmngr && rm -rf /var/lib/apt/lists/* \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
 	&& wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
 	&& export GNUPGHOME="$(mktemp -d)" \
@@ -77,12 +77,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
     
 # On ajoute le dépôt QGIS et R    
-RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
+#RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
     
 # On ajoute le dépôt QGIS
-#RUN echo "deb http://qgis.org/debian stretch main" > /etc/apt/sources.list.d/qgis.list
-#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
+RUN echo "deb http://qgis.org/debian stretch main" > /etc/apt/sources.list.d/qgis.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
 
 # On ajoute le dépôt R
 #RUN echo "deb http://cran.irsn.fr/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/rcran.list
@@ -98,7 +98,9 @@ RUN pip3 install --no-cache-dir \
     && for module in `curl https://downloads.tryton.org/${SERIES}/modules.txt`; do \
         pip3 install --no-cache-dir "trytond_${module} == ${SERIES}.*"; \
         done \
-    && pip3 install --no-cache-dir phonenumbers   
+    && pip3 install --no-cache-dir phonenumbers
+
+RUN pip3 install xmlrpc
 
 # On installe les dépendances de PostgreSQL, R et QGIS
 # Pour QGIS, R, Tryton

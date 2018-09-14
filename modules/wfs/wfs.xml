@@ -23,7 +23,7 @@ Copyright (c) 2013 Laurent Defert
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                    <form string="WFS configuration" col="2">
+                    <form col="2">
                         <label name="show_non_geo"/>
                         <field name="show_non_geo"/>
                         <label name="default_geo"/>

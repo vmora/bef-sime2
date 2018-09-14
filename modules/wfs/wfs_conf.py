@@ -22,7 +22,7 @@ Copyright (c) 2013 Laurent Defert
 import urllib
 
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
-from trytond.protocols.http import get_http_url
+#from trytond.protocols.http import get_http_url
 from trytond.transaction import Transaction
 
 __all__ = ['WfsConf']
@@ -45,7 +45,8 @@ class WfsConf(ModelSingleton, ModelSQL, ModelView):
         """Return the url that answers WFS"""
         conf = cls.search([])
         if len(conf) == 0 or conf[0].prefix_url == '' or conf[0].prefix_url is None:
-            url = get_http_url() + '/model/wfs/wfs/wfs'
+            #url = get_http_url() + '/model/wfs/wfs/wfs'
+            raise RuntimeError("missing wfs configuration file")
         else:
             url = conf[0].prefix_url + urllib.quote(Transaction().cursor.database_name.encode('utf-8') + '/')
             url += '/model/wfs/wfs/wfs'
