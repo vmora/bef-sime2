@@ -592,7 +592,7 @@ class ModelSQL(ModelStorage):
                                 [insert_values]))
                         id_new = transaction.database.lastid(cursor)
                 new_ids.append(id_new)
-            except DatabaseIntegrityError, exception:
+            except DatabaseIntegrityError as exception:
                 transaction = Transaction()
                 with Transaction().new_transaction(), \
                         Transaction().set_context(_check_access=False):
@@ -993,7 +993,7 @@ class ModelSQL(ModelStorage):
                 try:
                     cursor.execute(*table.update(columns, update_values,
                             where=red_sql))
-                except DatabaseIntegrityError, exception:
+                except DatabaseIntegrityError as exception:
                     transaction = Transaction()
                     with Transaction().new_transaction(), \
                             Transaction().set_context(_check_access=False):
@@ -1161,7 +1161,7 @@ class ModelSQL(ModelStorage):
 
             try:
                 cursor.execute(*table.delete(where=red_sql))
-            except DatabaseIntegrityError, exception:
+            except DatabaseIntegrityError as exception:
                 transaction = Transaction()
                 with Transaction().new_transaction():
                     cls.__raise_integrity_error(

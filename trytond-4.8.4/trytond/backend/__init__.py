@@ -24,7 +24,7 @@ def get(prop):
     if modname not in sys.modules:
         try:
             __import__(modname)
-        except ImportError, exception:
+        except ImportError as exception:
             if not pkg_resources:
                 raise exception
             try:

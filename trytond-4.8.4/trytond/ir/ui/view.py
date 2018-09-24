@@ -173,7 +173,7 @@ class View(ModelSQL, ModelView):
                     try:
                         value = PYSONDecoder().decode(element.get(attr))
                         validates.get(attr, lambda a: True)(value)
-                    except Exception, e:
+                    except Exception as e:
                         error_log = '%s: <%s %s="%s"/>' % (
                             e, element.get('id') or element.get('name'), attr,
                             element.get(attr))

@@ -1574,7 +1574,7 @@ class EvalEnvironment(dict):
     def __getattr__(self, item):
         try:
             return self.__getitem__(item)
-        except KeyError, exception:
+        except KeyError as exception:
             raise AttributeError(*exception.args)
 
     def get(self, item, default=None):

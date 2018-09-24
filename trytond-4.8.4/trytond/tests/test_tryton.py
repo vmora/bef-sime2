@@ -682,7 +682,7 @@ class TestSuite(unittest.TestSuite):
             try:
                 exist = db_exist()
                 break
-            except DatabaseOperationalError, err:
+            except DatabaseOperationalError as err:
                 # Retry on connection error
                 sys.stderr.write(str(err))
                 time.sleep(1)

@@ -69,9 +69,9 @@ class TrytondWSGI(object):
             max_request_size = getattr(endpoint, 'max_request_size', None)
             self.check_request_size(request, max_request_size)
             return endpoint(request, **request.view_args)
-        except HTTPException, e:
+        except HTTPException as e:
             return e
-        except Exception, e:
+        except Exception as e:
             tb_s = ''.join(traceback.format_exception(*sys.exc_info()))
             for path in sys.path:
                 tb_s = tb_s.replace(path, '')

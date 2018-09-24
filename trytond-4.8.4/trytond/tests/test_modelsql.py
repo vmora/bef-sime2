@@ -39,7 +39,7 @@ class ModelSQLTestCase(unittest.TestCase):
         for key, value in fields.iteritems():
             try:
                 Modelsql.create([{key: value}])
-            except UserError, err:
+            except UserError as err:
                 # message must not quote key
                 msg = "'%s' not missing but quoted in error: '%s'" % (key,
                         err.message)
