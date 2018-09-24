@@ -22,6 +22,7 @@
 ##############################################################################
 
 from trytond.model import ModelView, ModelSQL, fields
+from trytond_gis import fields as geofields
 
 from trytond.modules.geotools.tools import bbox_aspect
 from trytond.modules.qgis.qgis import QGis
@@ -87,9 +88,8 @@ class Canton(Mapable, ModelSQL, ModelView):
             string=u'Date de version',
             help=u'Date de version',
         )
-    geom = fields.MultiPolygon(
+    geom = geofields.MultiPolygon(
             string=u'Géométrie',
-            srid=2154,
             select=True
         )
     canton_image = fields.Function(

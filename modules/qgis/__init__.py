@@ -26,11 +26,12 @@ from .mapable import Mapable
 
 
 def register():
+    print("REGISTER qgis module ########################")
     Pool.register(
-        Mapable,
         Version,
         QGisConf,
+        Mapable,
         module='qgis', type_='model')
-    Pool.register(
-        QGis,
-        module='qgis', type_='report')
+#    Pool.register(
+#        QGis,
+#        module='qgis', type_='report')

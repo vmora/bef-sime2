@@ -22,6 +22,7 @@
 ##############################################################################
 
 from trytond.model import ModelView, ModelSQL, fields
+from trytond_gis import fields as geofields
 
 from trytond.modules.geotools.tools import bbox_aspect
 from trytond.modules.qgis.qgis import QGis
@@ -166,9 +167,8 @@ class Commune(Mapable, ModelSQL, ModelView):
             help=u'Date de classement',
             states={'invisible': Not(Bool(Eval('montagne')))},
         )
-    geom = fields.MultiPolygon(
+    geom = geofields.MultiPolygon(
             string=u'Géométrie',
-            srid=2154,
             select=True
         )
     commune_image = fields.Function(

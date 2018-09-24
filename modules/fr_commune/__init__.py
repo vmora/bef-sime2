@@ -22,11 +22,11 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from departement import Departement, DepartementQGis, GenerateD
-from commune import Commune, CommuneQGis, CommuneCanton, GenerateC
-from region import Region, RegionQGis, GenerateR
-from canton import Canton, CantonQGis, GenerateCa
-from population import Population
+from .departement import Departement, DepartementQGis, GenerateD
+from .commune import Commune, CommuneQGis, CommuneCanton, GenerateC
+from .region import Region, RegionQGis, GenerateR
+from .canton import Canton, CantonQGis, GenerateCa
+from .population import Population
 
 def register():
     Pool.register(

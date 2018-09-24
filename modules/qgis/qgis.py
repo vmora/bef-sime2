@@ -25,12 +25,9 @@ import datetime
 import inspect
 import os
 import time
-from urllib import quote_plus
+from urllib.parse import quote_plus
 
-try:
-    import cStringIO as StringIO
-except ImportError:
-    import StringIO
+from io import StringIO
 
 from genshi.filters import Translator
 from relatorio.reporting import Report as RelatorioReport, MIMETemplateLoader

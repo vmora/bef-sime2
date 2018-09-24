@@ -23,20 +23,24 @@ Reference implementation for stuff with geometry and map
 
 from trytond.pool import Pool
 from trytond.model import Model
-from trytond.config import CONFIG
+from trytond.config import config
 from trytond.transaction import Transaction
 
 import shutil
 import os
 import time
-import ConfigParser
 import urllib
 import re
-import urlparse
+from urllib.parse import urlparse, parse_qs
 import xml.dom 
 import tempfile
 import stat
 import codecs
+
+__all__ = [
+    'Mapable',
+    ]
+
 
 def bbox_aspect(bbox, width, height, percent_margin = .1):
     """maintain ratio of bbox = [xmin, ymin, xmax, ymax]
@@ -75,6 +79,7 @@ class Mapable(Model):
 
     DEBUG = True
 
+    @classmethod
     def _get_image(self, qgis_filename, composition_name):
         """Return a feature image produced by qgis wms server from a template qgis file
         containing a composition"""
@@ -97,10 +102,13 @@ class Mapable(Model):
             self.raise_user_error("%s has no attachement %s", (self.__name__, qgis_filename))
 
         # get credentials for qgsi server
-        config = ConfigParser.ConfigParser()
-        config.read(CONFIG['qgis_server_conf'])
-        username = config.get('options','username')
-        password = config.get('options','password')
+        #config = ConfigParser.ConfigParser()
+        #config.read(config['qgis_server_conf'])
+        #username = config.get('options','username')
+        #password = config.get('options','password')
+        # 
+        # we don't need that anymore, the server will have admin credentials (we will see how) to
+        # access the wfs server
 
         # replace feature id in .qgs file and put credentials in
         if not self.DEBUG:
@@ -128,8 +136,8 @@ class Mapable(Model):
                     break
 
             # check that this is the appropriate layer
-            url_parts = urlparse.urlparse(elem.childNodes[0].data)
-            param = urlparse.parse_qs(url_parts[4])
+            url_parts = urlparse(elem.childNodes[0].data)
+            param = parse_qs(url_parts[4])
             if 'TYPENAME' in param and param['TYPENAME'][0].find('tryton:') != -1:
                 if 'FILTER' in param :
                     filt = urllib.unquote(param['FILTER'][0])
@@ -138,7 +146,7 @@ class Mapable(Model):
                             '<ogc:Literal>'+str(self.id)+'</ogc:Literal>', 
                             filt)
                     param.update({'FILTER' : [urllib.quote(filt)]})
-                param.update({'username' : [username], 'password' : [password]})
+                #param.update({'username' : [username], 'password' : [password]})
                 elem.childNodes[0].data = urlparse.urlunparse(list(url_parts[0:4]) + 
                         ['&'.join([key+'='+','.join(val) for key, val in param.iteritems()])] + 
                         list(url_parts[5:]))
@@ -204,7 +212,7 @@ class Mapable(Model):
               'CRS=EPSG:'+str(srid),
               'DPI=75']+[name+':EXTENT='+me['ext'] for name, me in map_extends.iteritems()])
         buf = buffer(urllib.urlopen(url).read())
-        print '##################### ', time.time() - start, 'sec to GetPrint ', url
+        print('##################### ', time.time() - start, 'sec to GetPrint ', url)
 
         if (str(buf).find('ServiceException') != -1):
             self.raise_user_error("%s qgis-mapserver error:\n%s", (self.__name__, str(buf)))
