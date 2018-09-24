@@ -16,6 +16,7 @@ from trytond import security, backend
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.config import config
+import base64
 
 logger = logging.getLogger(__name__)
 
@@ -171,7 +172,12 @@ def user_application(name, json=True):
                 auth_type = auth_type.lower()
             except ValueError:
                 abort(401)
-            if auth_type != b'bearer':
+
+            if auth_type == b'bearer':
+                pass
+            elif auth_type == b'basic':
+                auth_info = base64.b64decode(auth_info).split(b':')[1]
+            else:
                 abort(403)
 
             application = UserApplication.check(bytes_to_wsgi(auth_info), name)
@@ -183,7 +189,7 @@ def user_application(name, json=True):
                     transaction.set_context(_check_access=True):
                 try:
                     response = func(request, *args, **kwargs)
-                except Exception, e:
+                except Exception as e:
                     if isinstance(e, HTTPException):
                         raise
                     logger.error('%s', request, exc_info=True)
