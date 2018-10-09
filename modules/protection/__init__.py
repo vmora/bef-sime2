@@ -20,7 +20,7 @@ Copyright (c) 2012-2013 Pierre-Louis Bonicoli
 
 from trytond.pool import Pool
 
-from protection import *
+from .protection import *
 
 def register():
     Pool.register(

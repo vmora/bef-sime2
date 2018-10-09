@@ -29,6 +29,7 @@ import os
 from osgeo import osr
 
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond_gis import fields as geofields
 from trytond.wizard import Wizard, StateView, StateAction, Button, StateTransition
 from trytond.pyson import Bool, Eval, Not
 from trytond.pool import PoolMeta, Pool
@@ -80,9 +81,8 @@ class Area(Mapable, ModelSQL, ModelView):
             string=u'Date de version',
         )
 
-    geom = fields.MultiPolygon(
+    geom = geofields.MultiPolygon(
             string=u'Geometry',
-            srid=2154,
             select=True
         )
     boundingBoxX1 = fields.Float(
@@ -217,9 +217,8 @@ class ReserveBiologique(Mapable, ModelSQL, ModelView):
             help=u'Mixte',
         )
 
-    geom = fields.MultiPolygon(
+    geom = geofields.MultiPolygon(
             string=u'Geometry',
-            srid=2154,
             select=True
         )
     boundingBoxX1 = fields.Float(
@@ -353,9 +352,8 @@ class Zico(Mapable, ModelSQL, ModelView):
             select=True
         )
 
-    geom = fields.MultiPolygon(
+    geom = geofields.MultiPolygon(
             string=u'Geometry',
-            srid=2154,
             select=True
         )
     boundingBoxX1 = fields.Float(
@@ -426,6 +424,5 @@ class GenerateAll(Wizard):
         model = Pool().get('protection.area')
         records = model.browse(Transaction().context.get('active_ids'))
         for record in records:
-            print record
             record.generate([record])
         return []

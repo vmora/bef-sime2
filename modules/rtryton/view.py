@@ -125,6 +125,6 @@ class DataView(ModelView):
                     #    attributes[header] = None
 
                 result.append(attributes)
-            except Exception, err:
-                print err
+            except Exception as err:
+                print(err)
         return result

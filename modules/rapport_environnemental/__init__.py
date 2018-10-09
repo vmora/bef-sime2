@@ -4,7 +4,7 @@ GPLv3
 """
 
 from trytond.pool import Pool
-from rapport_environnemental import *
+from .rapport_environnemental import *
 
 def register():
     Pool.register(

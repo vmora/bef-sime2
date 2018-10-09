@@ -25,6 +25,7 @@ import os
 from osgeo import osr
 
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond_gis import fields as geofields
 from trytond.pyson import Bool, Eval, Not
 from trytond.pool import PoolMeta, Pool
 
@@ -49,10 +50,8 @@ class Party(Mapable):
             'place',
             'Places'
         )
-    geom = fields.MultiPoint(
+    geom = geofields.MultiPoint(
             string = u'Geometry',
-            srid = 2154,
-            help = u'geometry',
             readonly = False,
             select = True,
         )

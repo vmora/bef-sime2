@@ -99,7 +99,7 @@ def save_rdata(ids, model_name, filename):
 
         df[mod_name] = dataframe(records, fields_info)
 
-        print "saving in Rdata: ", mod_name, list(id_list)
+        print("saving in Rdata: ", mod_name, list(id_list))
         """ save images """        
         for name,ttype in model._fields.iteritems():
             if ttype._type == "binary" and name[-4:] == "_map":
@@ -107,7 +107,7 @@ def save_rdata(ids, model_name, filename):
                 for record in records:                    
                     value = getattr(record, name)
                     imgpath = os.path.join(imagedir, (str(record)+'_'+name).replace(',','_').replace('.','_')+'.png')
-                    print "SAVING ", imgpath
+                    print("SAVING ", imgpath)
                     imgfile = open(imgpath,'wb')
                     imgfile.write(value)        
 

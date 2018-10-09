@@ -21,7 +21,7 @@ Copyright (c) 2015 Pascal Obstétar
 
 from trytond.pool import Pool
 
-from fr_address import Address
+from .fr_address import Address
 
 
 def register():

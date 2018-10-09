@@ -1,0 +1,9 @@
+configparser
+uwsgi
+psycopg2
+trytond_country
+trytond_google_maps
+trytond_party
+gdal
+trytond_gis
+rpy2

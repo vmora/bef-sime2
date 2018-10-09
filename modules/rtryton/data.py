@@ -27,7 +27,7 @@ from rpy2 import robjects
 from rpy2.rinterface import RRuntimeError
 import pickle
 
-from r_tools import dataframe
+from .r_tools import dataframe
 
 FieldInfo = namedtuple('FieldInfo', ['name', 'ttype'])
 
@@ -79,7 +79,6 @@ class Data(ModelView, ModelSQL):
     @classmethod
     def create(cls, vlist):
         data = super(Data, cls).create(vlist)
-        print "create:", data, vlist
         pool = Pool()
         Menu = pool.get('ir.ui.menu')
         ActWindow = pool.get('ir.action.act_window')
@@ -181,7 +180,7 @@ class Data(ModelView, ModelSQL):
                 # run code uploaded by users
                 try:
                     robjects.r(self.script.code)
-                except RRuntimeError, err:
+                except RRuntimeError as err:
                     self.raise_user_error('r_error', (err,))
                 globalenv = robjects.r["globalenv"]()
                 try:

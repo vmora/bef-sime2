@@ -95,6 +95,8 @@ RUN pip3 install --no-cache-dir trytond-gis
 
 RUN pip3 install --no-cache-dir trytond-modules 
 
+RUN pip3 install --no-cache-dir passlib
+
 RUN pip3 install --no-cache-dir \
     "trytond == ${SERIES}.*" \
     && for module in `curl https://downloads.tryton.org/${SERIES}/modules.txt`; do \

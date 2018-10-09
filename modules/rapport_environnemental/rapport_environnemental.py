@@ -5,9 +5,9 @@ GPLv3
 
 from trytond.pool import  Pool
 from trytond.model import ModelView, ModelSQL, fields
+from trytond_gis import fields as geofields
 from trytond.pyson import Eval, Not, Bool, And, Equal
 from trytond.wizard import Wizard, StateView, StateAction, Button
-from trytond.backend import FIELDS
 from trytond.pyson import PYSONEncoder
 from trytond.transaction import Transaction
 from trytond.modules.qgis.qgis import QGis
@@ -241,9 +241,8 @@ class line_place_area(Mapable, ModelSQL, ModelView):
     BGCOLOR = (1, 0.1, 0.1, 1)
     
     party = fields.Many2One('party.party', u'Tiers')    
-    geom = fields.MultiLineString(
+    geom = geofields.MultiLineString(
             string = u'Geometry',
-            srid = 2154,
             help = u'Geometry multilinestring',
         )
     line_image = fields.Function(fields.Binary('Image'), 'get_image')

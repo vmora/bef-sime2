@@ -4,6 +4,7 @@ GPLv3
 """
 
 from trytond.model import ModelView, ModelSQL, fields
+from trytond_gis import fields as geofields
 from trytond.pyson import Bool, Eval, Not
 
 __all__ = ['presence', 'origin', 'seasonal', 'uicn', 'UicnTaxon', 'cricat_pays_taxon']
@@ -236,8 +237,11 @@ class uicn(ModelSQL, ModelView):
             readonly = False,
         )            
 
-    geom = fields.MultiPolygon(string=u"""Geometry""", srid=2154,
-            required=False, readonly=False)
+    geom = geofields.MultiPolygon(
+            string=u"Geometry", 
+            required=False, 
+            readonly=False
+            )
             
     @staticmethod
     def default_active():

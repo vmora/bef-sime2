@@ -7,7 +7,7 @@ import logging
 from functools import reduce
 import imp
 import operator
-import ConfigParser
+import configparser
 from glob import iglob
 from collections import defaultdict
 
@@ -138,7 +138,7 @@ class Node(Singleton):
 
 def get_module_info(name):
     "Return the content of the tryton.cfg"
-    module_config = ConfigParser.ConfigParser()
+    module_config = configparser.ConfigParser()
     with tools.file_open(os.path.join(name, 'tryton.cfg')) as fp:
         module_config.readfp(fp)
         directory = os.path.dirname(fp.name)

@@ -5,7 +5,6 @@ import datetime
 from xml import sax
 import logging
 import re
-from itertools import izip
 from collections import defaultdict
 from decimal import Decimal
 
@@ -700,7 +699,7 @@ class TrytondXmlHandler(sax.handler.ContentHandler):
             records = Model.create(vlist)
 
         mdata_values = []
-        for record, values, fs_id in izip(records, vlist, fs_ids):
+        for record, values, fs_id in zip(records, vlist, fs_ids):
             for key in values:
                 values[key] = self._clean_value(key, record)
 
@@ -716,7 +715,7 @@ class TrytondXmlHandler(sax.handler.ContentHandler):
 
         models_data = self.ModelData.create(mdata_values)
 
-        for record, values, fs_id, mdata in izip(
+        for record, values, fs_id, mdata in zip(
                 records, vlist, fs_ids, models_data):
             self.fs2db.set(self.module, fs_id, {
                     'db_id': record.id,
