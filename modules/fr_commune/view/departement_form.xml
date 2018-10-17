@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Département">
+<form>
     <label name="region"/>
     <field name="region"/>
     <label name="nom"/>
@@ -12,7 +12,7 @@
     <field name="active"/>  
     <notebook>
         <page string="Map" id="map" col="4">
-            <field name="departement_map" widget="image" img_width="640" img_height="480" colspan="4"/>
+            <field name="departement_map" widget="image" width="640" height="480" colspan="4"/>
             <newline/>    
             <button string="Generate" name="generate" icon="tryton-executable" colspan="4"/>
         </page>        

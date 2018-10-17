@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Population">
+<tree>
     <field name="annee" />
     <field name="total" />
     <field name="pop_0014" />

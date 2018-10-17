@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Commune">
+<form>
     <label name="name"/>
     <field name="name"/>
     <label name="nom"/>
@@ -30,7 +30,7 @@
     </group>
     <notebook>        
         <page string="Map" id="map" col="4">
-            <field name="commune_map" widget="image" img_width="640" img_height="480" colspan="4"/>
+            <field name="commune_map" widget="image" width="640" height="480" colspan="4"/>
             <newline/>    
             <button string="Generate" name="generate" icon="tryton-executable" colspan="4"/>
         </page>
@@ -40,7 +40,7 @@
         <page string="Population" id="population" col="4">
             <field name="population" colspan="4"/>
         </page> 
-        <page string="Littoral" id="littoral" col="2" states="{'invisible': Not(Bool(Eval('littoral')))}">
+        <page string="Littoral" id="littoral" col="2" >
             <label name="classement"/>
             <field name="classement" widget="selection"/>
             <label name="motif"/>
@@ -48,7 +48,7 @@
             <label name="espace"/>
             <field name="espace"/>
         </page>
-        <page string="Montagne" id="montagne" col="2" states="{'invisible': Not(Bool(Eval('montagne')))}">
+        <page string="Montagne" id="montagne" col="2">
             <label name="datemontagne"/>
             <field name="datemontagne"/>
         </page>

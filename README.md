@@ -24,3 +24,4 @@ curl  -d '{"user":"admin", "application":"wfs"}' -H "Content-Type: application/j
 curl -H 'Authorization: Bearer 6153defdd49e4fa0a880113b17d95863d36060633d4c483a9e8552b4f04d966474d1b1225c224757aacc37c8b3f4b3c4e927b4aa423249638ccd5339765566c1'  GET http://localhost:8000/tryton/wfs
 
 python3 -m pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
+cp -r modules/* venv/lib/python3.6/site-packages/trytond/modules/ && TRYTOND_CONFIG=$PWD/trytond.conf TRYTOND_DATABASE_URI="postgis://vmo:tata@localhost:5432" PYTHONOPTIMIZE=0  trytond-admin  -d tryton --all

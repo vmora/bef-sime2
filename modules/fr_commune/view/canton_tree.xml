@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Canton">
+<tree>
     <field name="region"/>
     <field name="departement"/>
     <field name="commune"/>
