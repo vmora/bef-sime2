@@ -5,7 +5,6 @@
             <field name="code">2.6.0</field>
             <field name="name">QGIS 2.6.0</field>
         </record>
-<!--
         <record model="qgis.version" id="2">
             <field name="code">2.6.1</field>
             <field name="name">QGIS 2.6.1</field>
@@ -66,6 +65,9 @@
             <field name="code">2.16.0</field>
             <field name="name">QGIS 2.16.0</field>
         </record>
--->
+        <record model="qgis.version" id="17">
+            <field name="code">3.5.0</field>
+            <field name="name">QGIS 3.5.0</field>
+        </record>
     </data>
 </tryton>        
