@@ -50,7 +50,7 @@ class Data(ModelView, ModelSQL):
 
     @classmethod
     def __register__(cls, module_name):
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         sql ="""CREATE OR REPLACE FUNCTION sort_menu(parent_menu integer) RETURNS void AS $$
             DECLARE
                 r record;

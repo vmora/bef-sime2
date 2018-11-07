@@ -168,8 +168,7 @@ class Commune(Mapable, ModelSQL, ModelView):
             states={'invisible': Not(Bool(Eval('montagne')))},
         )
     geom = geofields.MultiPolygon(
-            string=u'Géométrie',
-            select=True
+            string=u'Géométrie'
         )
     commune_image = fields.Function(
              fields.Binary(

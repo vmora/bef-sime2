@@ -21,29 +21,35 @@ Copyright (c) 2013 Laurent Defert
 
 import time
 import logging
+import traceback
 
 from trytond.transaction import Transaction
 from trytond.application import app
+from trytond.pool import Pool
 
-from trytond.protocols.wrappers import with_pool, with_transaction, \
-        user_application
+from trytond.protocols.wrappers import with_pool, with_transaction
 
 from .wfs import WfsRequest
 
 logger = logging.getLogger(__name__)
 
-wfs_application = user_application('wfs')
-
-@app.route('/<database_name>/wfs', methods=['GET', 'POST'])
+@app.route('/<string:database_name>/wfs', methods=['GET', 'POST'])
 @with_pool
-@with_transaction()
-@wfs_application
-def wfs(request, pool):
-    print("ARGS REQUEST", request.args)
+@with_transaction(readonly=False)
+def wfs(request, database_name):
+    print("###########ARGS REQUEST", database_name, request.args)
     begin = time.time()
-    req = WfsRequest()
-    User = pool.get('res.user')
-    user = User(Transaction().user)
+    try:
+        transaction = Transaction()
+        req = WfsRequest()
+        print("###########1")
+    except Exception:
+        print("########### exc")
+        traceback.print_exc()
+        return None
+
+    #User = pool.get('res.user')
+    #user = User(Transaction().user)
     try:
         ret = req.handle(**request.args)
     except Exception:

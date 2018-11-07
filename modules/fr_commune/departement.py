@@ -84,8 +84,7 @@ class Departement(Mapable, ModelSQL, ModelView):
             help=u'Date de version',
         )
     geom = geofields.MultiPolygon(
-            string=u'Géométrie',
-            select=True
+            string=u'Géométrie'
         )
     departement_image = fields.Function(
              fields.Binary(

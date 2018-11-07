@@ -78,8 +78,7 @@ class Region(Mapable, ModelSQL, ModelView):
             help=u'Date de version',
         )
     geom = geofields.MultiPolygon(
-            string=u'Géométrie',
-            select=True
+            string=u'Géométrie'
         )
     region_image = fields.Function(
              fields.Binary(
@@ -138,6 +137,7 @@ class GenerateR(Wizard):
 
     @classmethod
     def execute(cls, session, data, state_name):
+        print("################### GENERATE")
         region = Pool().get('fr.region')
         regions = region.browse(Transaction().context.get('active_ids'))        
         for record in regions:

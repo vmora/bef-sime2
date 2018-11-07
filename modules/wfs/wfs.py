@@ -255,6 +255,7 @@ class WfsRequest(object):
         request = _kw.pop('request').lower()
 
         if request in WFS_REQUESTS and hasattr(self, request):
+            print("vmodbg handle", request, _kw)
             return getattr(self, request)(**_kw)
         return self.getcapabilities()
 
@@ -276,9 +277,10 @@ class WfsRequest(object):
 
             # Check the table contains records in the bbox
             models.append(model)
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             table = model.replace('.', '_')
-            if Model.table_query() : table = '('+Model.table_query()[0]%tuple(Model.table_query()[1])+') AS mytable'
+            if Model.table_query: 
+                table = '('+Model.table_query()[0]%tuple(Model.table_query()[1])+') AS mytable'
             col = field.name
             if bbox != [] and srsname != 0:
                 sql = 'SELECT ST_Extent(Box2D(%(col)s)) FROM %(table)s WHERE\
@@ -318,7 +320,7 @@ class WfsRequest(object):
             features.append({
                 'title': field.model.name,
                 'name': field.model.model,
-                'srs': 'EPSG:%s' % getattr(Model, field.name).srid,
+                'srs': 'EPSG:%d' % config.getint('database', 'srid'),
                 'bbox': feature_bbox,
             })
 
@@ -392,13 +394,21 @@ class WfsRequest(object):
         self.access_check(model)
 
         if bbox != []:
-            bbox = [float(nbr) for nbr in bbox.split(',')]
+            _bbox = []
+            for nbr in bbox.split(','):
+                try:
+                    _bbox.append(float(nbr))
+                except ValueError:
+                    break
+            bbox = _bbox
+
+        assert(len(bbox) in [0,4,6])
 
         Fields = Pool().get('ir.model.field')
         fields = Fields.search([('model.model', '=', model)])
         Model = Pool().get(model)
         factory = ElementFactory()
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         records = None
         filter_domain = filter2domain(filter)
 
@@ -647,7 +657,7 @@ class WfsRequest(object):
                         value = record.pop(geo_field)
                     record = Model.create([record])[0]
                     if geo_field is not None:
-                        cursor = Transaction().cursor
+                        cursor = Transaction().connection.cursor()
                         cursor.execute('UPDATE %s SET %s = %s WHERE id = %%s' %
                                        (model.replace('.', '_'), field, value), (record.id,))
                     inserts.append('%s.%i' % (model, record.id))
@@ -663,7 +673,7 @@ class WfsRequest(object):
 
                     sql_args = [record[field] for field in fields]
                     sql_args.append(record_id)
-                    cursor = Transaction().cursor
+                    cursor = Transaction().connection.cursor()
                     cursor.execute(sql, sql_args)
                     updates.append('%s.%s' % (model, record_id))
 
@@ -675,14 +685,14 @@ class WfsRequest(object):
 
     def format_exc(self):
         wfs_error = self.tmpl_loader.load('wfs_error.xml')
-        if config['log_level'].upper() == 'DEBUG':
+        if 'log_level' in config and config['log_level'].upper() == 'DEBUG':
             tb_s = ''.join(format_exception(*sys.exc_info()))
             for path in sys.path:
                 tb_s = tb_s.replace(path, '')
         else:
             tb_s = ''.join(format_exception_only(*sys.exc_info()[:2]))
 
-        error_msg = escape(tb_s.decode('utf-8'))
+        error_msg = escape(tb_s)
         rendered = wfs_error.generate(error_msg=error_msg).render()
         return rendered
 
