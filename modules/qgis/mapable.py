@@ -30,8 +30,9 @@ import shutil
 import os
 import time
 import urllib
+from urllib.request import urlopen
 import re
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, quote, unquote, urlunparse
 import xml.dom 
 import tempfile
 import stat
@@ -79,7 +80,6 @@ class Mapable(Model):
 
     DEBUG = True
 
-    @classmethod
     def _get_image(self, qgis_filename, composition_name):
         """Return a feature image produced by qgis wms server from a template qgis file
         containing a composition"""
@@ -95,6 +95,7 @@ class Mapable(Model):
                 [('resource', '=', "ir.model,%s"%model.id)])
         attachement = None
         for att in attachements: 
+            print("found attachement", att.name)
             if att.name == qgis_filename:
                 attachement = att
                 break
@@ -121,46 +122,43 @@ class Mapable(Model):
         dot_qgs = os.path.join(os.path.abspath(tmpdir), 'proj.qgs')
         dom = xml.dom.minidom.parseString( attachement.data )
 
-        WfsConf = Pool().get('wfs.conf')
-        wfs_url = WfsConf.get_url()
+        #for elem in dom.getElementsByTagName('datasource'):
 
-        for elem in dom.getElementsByTagName('datasource'):
+        #    basename = os.path.basename(elem.childNodes[0].data)
+        #    for att in attachements: 
+        #        if att.name == basename:
+        #            filename = os.path.join(os.path.abspath(tmpdir), basename)
+        #            with open(filename, 'wb') as image:
+        #                image.write( att.data )
+        #                elem.childNodes[0].data = filename
+        #            break
 
-            basename = os.path.basename(elem.childNodes[0].data)
-            for att in attachements: 
-                if att.name == basename:
-                    filename = os.path.join(os.path.abspath(tmpdir), basename)
-                    with open(filename, 'wb') as image:
-                        image.write( att.data )
-                        elem.childNodes[0].data = filename
-                    break
+        #    # check that this is the appropriate layer
+        #    url_parts = urlparse(elem.childNodes[0].data)
+        #    param = parse_qs(url_parts[4])
+        #    if 'TYPENAME' in param and param['TYPENAME'][0].find('tryton:') != -1:
+        #        if 'FILTER' in param :
+        #            filt = unquote(param['FILTER'][0])
+        #            filt = re.sub(
+        #                    '<ogc:Literal>.*</ogc:Literal>', 
+        #                    '<ogc:Literal>'+str(self.id)+'</ogc:Literal>', 
+        #                    filt)
+        #            param.update({'FILTER' : [quote(filt)]})
+        #        #param.update({'username' : [username], 'password' : [password]})
+        #        elem.childNodes[0].data = urlunparse(list(url_parts[0:4]) + 
+        #                ['&'.join([key+'='+','.join(val) for key, val in param.items()])] + 
+        #                list(url_parts[5:]))
 
-            # check that this is the appropriate layer
-            url_parts = urlparse(elem.childNodes[0].data)
-            param = parse_qs(url_parts[4])
-            if 'TYPENAME' in param and param['TYPENAME'][0].find('tryton:') != -1:
-                if 'FILTER' in param :
-                    filt = urllib.unquote(param['FILTER'][0])
-                    filt = re.sub(
-                            '<ogc:Literal>.*</ogc:Literal>', 
-                            '<ogc:Literal>'+str(self.id)+'</ogc:Literal>', 
-                            filt)
-                    param.update({'FILTER' : [urllib.quote(filt)]})
-                #param.update({'username' : [username], 'password' : [password]})
-                elem.childNodes[0].data = urlparse.urlunparse(list(url_parts[0:4]) + 
-                        ['&'.join([key+'='+','.join(val) for key, val in param.iteritems()])] + 
-                        list(url_parts[5:]))
-
-        # replaces images with linked ones and put them in the temp directory
-        for elem in dom.getElementsByTagName('ComposerPicture'):
-            basename = os.path.basename(elem.attributes['file'].value)
-            for att in attachements: 
-                if att.name == basename:
-                    image_file = os.path.join(os.path.abspath(tmpdir), basename)
-                    with open(image_file, 'wb') as image:
-                        image.write( att.data )
-                        elem.attributes['file'].value = image_file
-                    break
+        ## replaces images with linked ones and put them in the temp directory
+        #for elem in dom.getElementsByTagName('ComposerPicture'):
+        #    basename = os.path.basename(elem.attributes['file'].value)
+        #    for att in attachements: 
+        #        if att.name == basename:
+        #            image_file = os.path.join(os.path.abspath(tmpdir), basename)
+        #            with open(image_file, 'wb') as image:
+        #                image.write( att.data )
+        #                elem.attributes['file'].value = image_file
+        #            break
 
 
         with codecs.open(dot_qgs, 'w', 'utf-8') as file_out:
@@ -169,28 +167,35 @@ class Mapable(Model):
         # find the composer map aspect ratio and margins
         # from atlas
         map_extends = {};
-        compo = dom.getElementsByTagName('Composition')[0];
-        for cmap in compo.getElementsByTagName('ComposerMap'):
-            ext = cmap.getElementsByTagName('Extent')[0]
-            width = float(ext.attributes['xmax'].value) \
-                - float(ext.attributes['xmin'].value)
-            height = float(ext.attributes['ymax'].value) \
-                - float(ext.attributes['ymin'].value)
-            atlas_map = cmap.getElementsByTagName('AtlasMap')[0]
-            map_extends['map'+cmap.attributes['id'].value] = {'w':width, 'h':height, 'margin':.1, 'ext':ext}
-            if atlas_map and atlas_map.attributes['margin']:
-                map_extends['map'+cmap.attributes['id'].value] = {'w':width, 'h':height, 'margin':float(atlas_map.attributes['margin'].value), 'ext':ext}
+        compo = dom.getElementsByTagName('Layouts')[0];
+        for cmap in compo.getElementsByTagName('Layout'):
+            for item in compo.getElementsByTagName('LayoutItem'):
+                ext = item.getElementsByTagName('Extent')
+                if len(ext):
+                    ext = ext[0]
+                    width = float(ext.attributes['xmax'].value) \
+                        - float(ext.attributes['xmin'].value)
+                    height = float(ext.attributes['ymax'].value) \
+                        - float(ext.attributes['ymin'].value)
+                    atlas_map = item.getElementsByTagName('AtlasMap')[0]
+                    map_extends['map0'] = {'w':width, 'h':height, 'margin':.1, 'ext':ext}
+                    if atlas_map and atlas_map.attributes['margin']:
+                        map_extends['map0'] = {'w':width, 'h':height, 'margin':float(atlas_map.attributes['margin'].value), 'ext':ext}
 
         layers=[layer.attributes['name'].value for layer in dom.getElementsByTagName('layer-tree-layer')]
 
-        # compute bbox 
-        cursor = Transaction().cursor
-        cursor.execute('SELECT ST_SRID(geom), ST_Extent(geom) '
+        ## compute bbox 
+        cursor = Transaction().connection.cursor()
+        sql = ('SELECT ST_SRID(geom), ST_Extent(geom) '
             'FROM '+self.__name__.replace('.', '_')+' WHERE id = '+str(self.id)+' GROUP BY id;' )
+        print(self)
+        print(self.id)
+        print(sql)
+        cursor.execute(sql)
 
         [srid, ext] = cursor.fetchone()
         if ext:
-            for name, mex in map_extends.iteritems():
+            for name, mex in map_extends.items():
                 ext = ext.replace('BOX(', '').replace(')', '').replace(' ',',')
 
                 # ajout Pascal Obstetar pour EPSG:4326
@@ -201,17 +206,24 @@ class Mapable(Model):
                 mex['ext'] =  ','.join([str(i) for i in bbox_aspect([float(i) for i in ext.split(',')], mex['w'], mex['h'], mex['margin'])])
 
         # render image
-        url = 'http://localhost/cgi-bin/qgis_mapserv.fcgi?'+'&'.join([
+        url = 'http://localhost:8080/qgis?'+'&'.join([
               'SERVICE=WMS',
               'VERSION=1.3.0',
               'MAP='+dot_qgs,
               'REQUEST=GetPrint',
               'FORMAT=png',
-              'TEMPLATE='+urllib.quote(composition_name.encode('utf-8')),
-              'LAYER='+','.join([urllib.quote(l.encode('utf-8')) for l in layers[::-1]]),
-              'CRS=EPSG:'+str(srid),
-              'DPI=75']+[name+':EXTENT='+me['ext'] for name, me in map_extends.iteritems()])
-        buf = buffer(urllib.urlopen(url).read())
+              'TEMPLATE='+quote(composition_name.encode('utf-8')),
+              'LAYER='+','.join([quote(l.encode('utf-8')) for l in layers[::-1]]),
+              'CRS=EPSG:'+str(config.getint('database', 'srid')),
+              'DPI=75']+[name+':EXTENT='+me['ext'] for name, me in map_extends.items()
+              ])
+        print('##################### ', url)
+        try:
+            buf = urlopen(url).read()
+        except:
+            print('##################### ', time.time() - start, ' to fail on', url)
+            raise
+
         print('##################### ', time.time() - start, 'sec to GetPrint ', url)
 
         if (str(buf).find('ServiceException') != -1):
