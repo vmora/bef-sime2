@@ -90,6 +90,7 @@ class Mapable(Model):
 
         # retrieve attached .qgs file
         [model] = Pool().get('ir.model').search([('model', '=', self.__name__)])
+        print("model", model)
 
         attachements = Pool().get('ir.attachment').search(
                 [('resource', '=', "ir.model,%s"%model.id)])
@@ -150,15 +151,18 @@ class Mapable(Model):
                         list(url_parts[5:]))
 
         # replaces images with linked ones and put them in the temp directory
-        for elem in dom.getElementsByTagName('ComposerPicture'):
-            basename = os.path.basename(elem.attributes['file'].value)
-            for att in attachements: 
-                if att.name == basename:
-                    image_file = os.path.join(os.path.abspath(tmpdir), basename)
-                    with open(image_file, 'wb') as image:
-                        image.write( att.data )
-                        elem.attributes['file'].value = image_file
-                    break
+        for elem in dom.getElementsByTagName('LayoutItem'):
+            if elem.hasAttribute('file'):
+                basename = os.path.basename(elem.attributes['file'].value)
+                print("########## LAYOUT HAS FILE", basename)
+                for att in attachements: 
+                    print("########## LAYOUT LOOKIN FOR FILE", basename, att.name)
+                    if att.name == basename:
+                        image_file = os.path.join(os.path.abspath(tmpdir), basename)
+                        with open(image_file, 'wb') as image:
+                            image.write( att.data )
+                            elem.attributes['file'].value = image_file
+                        break
 
 
         with codecs.open(dot_qgs, 'w', 'utf-8') as file_out:

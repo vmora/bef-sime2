@@ -107,10 +107,10 @@ class Departement(Mapable, ModelSQL, ModelView):
     COLOR = (1, 0.1, 0.1, 1)
     BGCOLOR = (1, 0.1, 0.1, 0.4)
 
-    def get_image(self, ids):
+    def get_image(self):
         return self._get_image('departement_image.qgs', 'carte')
 
-    def get_map(self, ids):
+    def get_map(self):
         return self._get_image('departement_map.qgs', 'carte')   
 
     @classmethod
@@ -132,7 +132,7 @@ class Departement(Mapable, ModelSQL, ModelView):
         for record in records:
             if record.nom is None:
                 continue                                              
-            cls.write([record], {'departement_map': cls.get_map(record, 'map')})
+            cls.write([record], {'departement_map': cls.get_map(record)})
 
 class DepartementQGis(QGis):
     __name__ = 'fr.departement.qgis'

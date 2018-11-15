@@ -191,10 +191,10 @@ class Commune(Mapable, ModelSQL, ModelView):
     COLOR = (1, 0.1, 0.1, 1)
     BGCOLOR = (1, 0.1, 0.1, 0.4)
 
-    def get_image(self, ids):
+    def get_image(self):
         return self._get_image('commune_image.qgs', 'carte')
 
-    def get_map(self, ids):
+    def get_map(self):
         return self._get_image('commune_map.qgs', 'carte')   
 
     @classmethod
@@ -217,7 +217,7 @@ class Commune(Mapable, ModelSQL, ModelView):
         for record in records:
             if record.nom is None:
                 continue                                              
-            cls.write([record], {'commune_map': cls.get_map(record, 'map')})
+            cls.write([record], {'commune_map': cls.get_map(record)})
 
 class CommuneQGis(QGis):
     __name__ = 'fr.commune.qgis'

@@ -105,7 +105,6 @@ class Region(Mapable, ModelSQL, ModelView):
         return self._get_image('region_image.qgs', 'carte')
 
     def get_map(self):
-        print("get_map",self.id)
         return self._get_image('region_map.qgs', 'carte')   
 
     @classmethod
