@@ -90,13 +90,11 @@ class Mapable(Model):
 
         # retrieve attached .qgs file
         [model] = Pool().get('ir.model').search([('model', '=', self.__name__)])
-        print("model", model)
 
         attachements = Pool().get('ir.attachment').search(
                 [('resource', '=', "ir.model,%s"%model.id)])
         attachement = None
         for att in attachements: 
-            print("found attachement", att.name)
             if att.name == qgis_filename:
                 attachement = att
                 break
@@ -154,9 +152,7 @@ class Mapable(Model):
         for elem in dom.getElementsByTagName('LayoutItem'):
             if elem.hasAttribute('file'):
                 basename = os.path.basename(elem.attributes['file'].value)
-                print("########## LAYOUT HAS FILE", basename)
                 for att in attachements: 
-                    print("########## LAYOUT LOOKIN FOR FILE", basename, att.name)
                     if att.name == basename:
                         image_file = os.path.join(os.path.abspath(tmpdir), basename)
                         with open(image_file, 'wb') as image:
@@ -192,9 +188,6 @@ class Mapable(Model):
         cursor = Transaction().connection.cursor()
         sql = ('SELECT ST_SRID(geom), ST_Extent(geom) '
             'FROM '+self.__name__.replace('.', '_')+' WHERE id = '+str(self.id)+' GROUP BY id;' )
-        print(self)
-        print(self.id)
-        print(sql)
         cursor.execute(sql)
 
         [srid, ext] = cursor.fetchone()
@@ -221,7 +214,6 @@ class Mapable(Model):
               'CRS=EPSG:'+str(config.getint('database', 'srid')),
               'DPI=75']+[name+':EXTENT='+me['ext'] for name, me in map_extends.items()
               ])
-        print('##################### ', url)
         try:
             buf = urlopen(url).read()
         except:
