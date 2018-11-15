@@ -122,43 +122,43 @@ class Mapable(Model):
         dot_qgs = os.path.join(os.path.abspath(tmpdir), 'proj.qgs')
         dom = xml.dom.minidom.parseString( attachement.data )
 
-        #for elem in dom.getElementsByTagName('datasource'):
+        for elem in dom.getElementsByTagName('datasource'):
 
-        #    basename = os.path.basename(elem.childNodes[0].data)
-        #    for att in attachements: 
-        #        if att.name == basename:
-        #            filename = os.path.join(os.path.abspath(tmpdir), basename)
-        #            with open(filename, 'wb') as image:
-        #                image.write( att.data )
-        #                elem.childNodes[0].data = filename
-        #            break
+            basename = os.path.basename(elem.childNodes[0].data)
+            for att in attachements: 
+                if att.name == basename:
+                    filename = os.path.join(os.path.abspath(tmpdir), basename)
+                    with open(filename, 'wb') as image:
+                        image.write( att.data )
+                        elem.childNodes[0].data = filename
+                    break
 
-        #    # check that this is the appropriate layer
-        #    url_parts = urlparse(elem.childNodes[0].data)
-        #    param = parse_qs(url_parts[4])
-        #    if 'TYPENAME' in param and param['TYPENAME'][0].find('tryton:') != -1:
-        #        if 'FILTER' in param :
-        #            filt = unquote(param['FILTER'][0])
-        #            filt = re.sub(
-        #                    '<ogc:Literal>.*</ogc:Literal>', 
-        #                    '<ogc:Literal>'+str(self.id)+'</ogc:Literal>', 
-        #                    filt)
-        #            param.update({'FILTER' : [quote(filt)]})
-        #        #param.update({'username' : [username], 'password' : [password]})
-        #        elem.childNodes[0].data = urlunparse(list(url_parts[0:4]) + 
-        #                ['&'.join([key+'='+','.join(val) for key, val in param.items()])] + 
-        #                list(url_parts[5:]))
+            # check that this is the appropriate layer
+            url_parts = urlparse(elem.childNodes[0].data)
+            param = parse_qs(url_parts[4])
+            if 'TYPENAME' in param and param['TYPENAME'][0].find('tryton:') != -1:
+                if 'FILTER' in param :
+                    filt = unquote(param['FILTER'][0])
+                    filt = re.sub(
+                            '<ogc:Literal>.*</ogc:Literal>', 
+                            '<ogc:Literal>'+str(self.id)+'</ogc:Literal>', 
+                            filt)
+                    param.update({'FILTER' : [quote(filt)]})
+                #param.update({'username' : [username], 'password' : [password]})
+                elem.childNodes[0].data = urlunparse(list(url_parts[0:4]) + 
+                        ['&'.join([key+'='+','.join(val) for key, val in param.items()])] + 
+                        list(url_parts[5:]))
 
-        ## replaces images with linked ones and put them in the temp directory
-        #for elem in dom.getElementsByTagName('ComposerPicture'):
-        #    basename = os.path.basename(elem.attributes['file'].value)
-        #    for att in attachements: 
-        #        if att.name == basename:
-        #            image_file = os.path.join(os.path.abspath(tmpdir), basename)
-        #            with open(image_file, 'wb') as image:
-        #                image.write( att.data )
-        #                elem.attributes['file'].value = image_file
-        #            break
+        # replaces images with linked ones and put them in the temp directory
+        for elem in dom.getElementsByTagName('ComposerPicture'):
+            basename = os.path.basename(elem.attributes['file'].value)
+            for att in attachements: 
+                if att.name == basename:
+                    image_file = os.path.join(os.path.abspath(tmpdir), basename)
+                    with open(image_file, 'wb') as image:
+                        image.write( att.data )
+                        elem.attributes['file'].value = image_file
+                    break
 
 
         with codecs.open(dot_qgs, 'w', 'utf-8') as file_out:
