@@ -86,6 +86,10 @@ class Mapable(Model):
         if self.geom is None:
             return buffer('')
 
+        transaction = Transaction()
+        User = Pool().get('res.user')
+        [user] = User.search([('id', '=', transaction.user)])
+        print("%%%%%%%% user request image", user.login)
         start = time.time()
 
         # retrieve attached .qgs file
@@ -131,6 +135,9 @@ class Mapable(Model):
                         image.write( att.data )
                         elem.childNodes[0].data = filename
                     break
+
+            #elem.setAttribute("user", user.login)
+            #elem.setAttribute("password", tmpdir)
 
             # check that this is the appropriate layer
             url_parts = urlparse(elem.childNodes[0].data)

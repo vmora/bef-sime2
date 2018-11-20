@@ -545,6 +545,7 @@ class WfsRequest(object):
         if data.nodeName != 'Transaction':
             raise Exception('Invalid transaction')
 
+        print(data.toprettyxml())
         inserts = []
         deletes = []
         updates = []
@@ -579,9 +580,9 @@ class WfsRequest(object):
                     raise Exception('Unknown feature type %s' % typename)
 
                 if srsname == 0:
-                    for field in Model._fields.itervalues():
+                    for field in Model._fields.values():
                         if field._type in GEO_TYPES:
-                            srsname = field.srid
+                            srsname = config.getint('database', 'srid')
                             break
                     else:
                         raise Exception('Srid is not set, cannot modify geometry')
@@ -602,7 +603,8 @@ class WfsRequest(object):
                         if child.nodeName == 'Property':
                             for property in child.childNodes:
                                 if property.nodeName == 'Name':
-                                    field = property.firstChild.data
+                                    field = property.firstChild.data.replace('tryton:','')
+                                    print("field:", field)
                                     self.access_check(model, field, mode=tryton_op)
                                 elif property.nodeName == 'Value':
                                     if (property.hasChildNodes() and
@@ -681,6 +683,7 @@ class WfsRequest(object):
         rendered = wfs_trans_summary.generate(updates=updates,
                                               deletes=deletes,
                                               inserts=inserts).render()
+        print("OK", rendered)
         return rendered
 
     def format_exc(self):

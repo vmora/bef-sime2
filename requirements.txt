@@ -6,4 +6,5 @@ trytond_google_maps
 trytond_party
 gdal
 trytond_gis
+passlib
 rpy2
